@@ -4,7 +4,7 @@ In order to learn some Java, I will build this PCP application, with the followi
 
 ### FORECASTING
 
-- Quantitative methods
+Quantitative methods
 - Simple moving average
 - Weighted moving averages
 - Simple exponential smoothing
