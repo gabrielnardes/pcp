@@ -10,10 +10,10 @@ public class Data {
     }
 
     public void print() {
-        System.out.println("DATA");
+        System.out.println("\nDATA");
 
-        for (double el : data) {
-            System.out.println(el);
+        for (int i = 0; i < data.length; i++) {
+            System.out.printf("d[%d]: %.1f\n", i+1, data[i]);
         }
     }
 
