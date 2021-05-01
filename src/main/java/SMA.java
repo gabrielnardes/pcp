@@ -18,14 +18,18 @@ public class SMA {
     }
 
     public void calc() {
-        for (int i = 0; i <= d.length() - this.period; i++) {
+        for (int i = 0; i <= d.length() - period; i++) {
             double sum = 0;
 
-            for (int j = i; j < i + this.period; j++) {
+            for (int j = i; j < i + period; j++) {
                 sum += d.get(j);
             }
 
-           this.sma[i] = sum / this.period;
+            sma[i] = sum / period;
         }
+    }
+
+    public double get(int i) {
+        return sma[i];
     }
 }
