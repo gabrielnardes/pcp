@@ -58,4 +58,28 @@ public class LLS {
 
         return new Data(y);
     }
+
+    public Data season(Data demand, Data regression, int period) {
+        double[] ratio = new double[demand.length()];
+        for (int i = 0; i < ratio.length; i++) {
+            ratio[i] = demand.get(i) / regression.get(i);
+        }
+
+        double[] m = new double[period];
+        for (int i = 0; i < m.length; i++) {
+            m[i] = (ratio[i] + ratio[i+period]) / 2;
+        }
+
+        double[] multiplier = new double[regression.length()];
+        for (int i = 0; i < multiplier.length; i++) {
+            multiplier[i] = m[i % period];
+        }
+
+        double[] y = new double[multiplier.length];
+        for (int i = 0; i < y.length; i++) {
+            y[i] = regression.get(i) * multiplier[i];
+        }
+
+        return new Data(y);
+    }
 }
