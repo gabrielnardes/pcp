@@ -64,5 +64,18 @@ public class Main {
         r4.print();
         s4.print();
 */
+        // Errors
+//        Data d1 = new Data(12, 15, 13, 16, 14, 12);
+//        Data f1 = new Data(14, 13, 12, 13, 15, 14);
+//
+//        Error e1 = new Error(d1, f1);
+//        e1.mfe();
+//        e1.mad();
+
+//        Data d1 = new Data(8, 11, 12, 14);
+//        Data f1 = new Data(10, 10, 10, 10);
+//
+//        Error e1 = new Error(d1, f1);
+//        e1.trackingSignal();
     }
 }
