@@ -9,11 +9,12 @@ public class Error {
         }
 
         this.x = x;
-        this.y = x;
+        this.y = y;
 
         this.n = x.length();
     }
 
+    // Mean Forecast Error
     public void mfe() {
         double errorSum = 0;
 
@@ -22,5 +23,16 @@ public class Error {
         }
 
         System.out.printf("\nMean Forecast Error: %.2f", errorSum / n);
+    }
+
+    // Mean Absolute Deviation
+    public void mad() {
+        double errorSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            errorSum += Math.abs(x.get(i) - y.get(i));
+        }
+
+        System.out.printf("\nMean Absolute Deviation: %.2f", errorSum / n);
     }
 }
