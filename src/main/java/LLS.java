@@ -1,20 +1,15 @@
 //import static java.lang.Math.abs;
 
 public class LLS {
-    private final Data x;
-    private final Data y;
     private final double m;
     private final double b;
-    private final double n;
 
     public LLS(Data x, Data y) {
-        this.x = x;
-        this.y = y;
 
         if (x.length() != y.length()) {
             System.out.println("X and Y data set must be equal length");
         }
-        n = x.length();
+        double n = x.length();
 
         double xSum = 0;
         for (int i = 0; i < n; i++) {
@@ -36,7 +31,7 @@ public class LLS {
             xxSum += x.get(i) * x.get(i);
         }
 
-        m = (n*xySum - xSum*ySum) / (n*xxSum - xSum*xSum);
+        m = (n *xySum - xSum*ySum) / (n *xxSum - xSum*xSum);
         b = (ySum - m*xSum) / n;
     }
 
@@ -52,5 +47,15 @@ public class LLS {
 
     public double calc(double x) {
         return m * x + b;
+    }
+
+    public Data calc(Data x) {
+        double[] y = new double[x.length()];
+
+        for (int i = 0; i < x.length(); i++) {
+            y[i] = m * x.get(i) + b;
+        }
+
+        return new Data(y);
     }
 }
