@@ -45,6 +45,10 @@ public class Main {
         Data y1 = new Data(256, 312, 426, 278, 298, 387, 517, 349);
         LLS lls1 = new LLS(x1, y1);
         lls1.print();
+
+        Data x2 = new Data(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        Data y2 = lls1.calc(x2);
+        y2.print();
 */
     }
 }
