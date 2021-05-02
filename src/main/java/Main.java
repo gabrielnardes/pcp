@@ -48,7 +48,21 @@ public class Main {
 
         Data x2 = new Data(1, 2, 3, 4, 5, 6, 7, 8, 9);
         Data y2 = lls1.calc(x2);
+        Data y3 = lls1.season(y1, y2, 4);
         y2.print();
+        y3.print();
+
+        Data x4 = new Data(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                              11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                              21, 22, 23, 24, 25, 26, 27, 28, 29, 30);
+        Data y4 = new Data(49, 22, 44, 87, 98, 30, 87, 89, 27, 80,
+                21, 72, 93, 74, 30, 77, 94, 82, 3, 63, 29, 4, 13, 9,
+                30, 64, 42, 24, 1, 89);
+        LLS lls4 = new LLS(x4, y4);
+        Data r4 = lls4.calc(x4);
+        Data s4 = lls4.season(y4, r4, 12);
+        r4.print();
+        s4.print();
 */
     }
 }
