@@ -1,11 +1,11 @@
 public class Data {
-    private double[] data;
+    private final double[] data;
 
     public Data(double ... d) {
         data = d;
     }
 
-    public double length() {
+    public int length() {
         return data.length;
     }
 
