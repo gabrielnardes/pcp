@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class Item {
     private String name;
-    private double currentStock;
+    private double initialStock;
     private double leadTime;
     private double safetyStock;
     private double lotSize;
     private ArrayList<Child> children;
     private double[] demand;
 
-    public Item(String name, double currentStock, double leadTime, double safetyStock, double lotSize, Child... children) {
+    public Item(String name, double initialStock, double leadTime, double safetyStock, double lotSize, Child... children) {
 //        System.out.println("Creating " + name);
 
         this.name = name;
-        this.currentStock = currentStock;
+        this.initialStock = initialStock;
         this.leadTime = leadTime;
         this.safetyStock = safetyStock;
         this.lotSize = lotSize;
@@ -47,13 +47,13 @@ public class Item {
     }
 
     public MRP plan() {
-        return new MRP(demand, currentStock, leadTime, lotSize);
+        return new MRP(demand, initialStock, leadTime, lotSize);
     }
 
     public void print() {
         System.out.printf("Item{" +
                 "name='" + name + '\'' +
-                ", currentStock=" + currentStock +
+                ", currentStock=" + initialStock +
                 ", leadTime=" + leadTime +
                 ", safetyStock=" + safetyStock +
                 ", lotSize=" + lotSize +
