@@ -65,4 +65,11 @@ public class Item {
             children.get(i).print();
         }
     }
+
+    public void transverse() {
+        for (Child c : children) {
+            c.getItem().transverse();
+            c.print();
+        }
+    }
 }

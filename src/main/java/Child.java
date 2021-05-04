@@ -11,4 +11,8 @@ public class Child {
         item.print();
         System.out.println("Quantity " + quantity);
     }
+
+    public Item getItem() {
+        return item;
+    }
 }
