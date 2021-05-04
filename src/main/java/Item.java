@@ -10,8 +10,6 @@ public class Item {
     private double[] demand;
 
     public Item(String name, double initialStock, double leadTime, double safetyStock, double lotSize, Child... children) {
-//        System.out.println("Creating " + name);
-
         this.name = name;
         this.initialStock = initialStock;
         this.leadTime = leadTime;
@@ -23,7 +21,6 @@ public class Item {
 //            c.print();
             this.children.add(c);
         }
-//        System.out.println("Finish " + name);
     }
 
     public void addChild(Child child) {
@@ -46,8 +43,8 @@ public class Item {
         }
     }
 
-    public MRP plan() {
-        return new MRP(demand, initialStock, leadTime, lotSize);
+    public MRP plan(double quantity) {
+        return new MRP(demand, initialStock, leadTime, lotSize, children, name, quantity);
     }
 
     public void print() {

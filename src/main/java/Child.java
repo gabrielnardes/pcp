@@ -15,4 +15,8 @@ public class Child {
     public Item getItem() {
         return item;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
