@@ -57,6 +57,10 @@ public class Item {
                 '}');
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void printChildren() {
         for (int i = 0; i < children.size(); i++) {
             children.get(i).print();
@@ -68,5 +72,13 @@ public class Item {
             c.getItem().transverse();
             c.print();
         }
+    }
+
+    public BOM bom(int quantity) {
+        return new BOM(this, quantity);
+    }
+
+    public ArrayList<Child> getChildren() {
+        return children;
     }
 }

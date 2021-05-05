@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+// TODO must consider when current stock is smaller than safety stock
+// TODO what to do when the first order won't make in time. Ok to be negative?
+
 public class MRP {
     private String name;
     private double quantity;
