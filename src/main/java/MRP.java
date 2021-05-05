@@ -15,7 +15,8 @@ public class MRP {
                double lotSize,
                ArrayList<Child> children,
                String name,
-               double quantity) {
+               double quantity,
+               double safetyStock) {
         this.name = name;
         this.quantity = quantity;
         int length = grossRequirement.length;
@@ -29,8 +30,9 @@ public class MRP {
         for (int i = 1; i < length; i++) {
             if (grossRequirement[i] == 0) {
                 projectedAvailable[i] = projectedAvailable[i-1];
-            } else if (projectedAvailable[i - 1] - grossRequirement[i] < 0){
-                double lot = Math.ceil((grossRequirement[i] -projectedAvailable[i - 1]) / lotSize);
+            } else if (projectedAvailable[i - 1] - grossRequirement[i] < safetyStock){
+                double lot = Math.ceil((safetyStock + grossRequirement[i] - projectedAvailable[i - 1]) / lotSize);
+
                 scheduledReceipts[i] = lot * lotSize;
                 plannedOrderRelease[i - (int)leadTime] = scheduledReceipts[i];
                 projectedAvailable[i] = projectedAvailable[i - 1] + scheduledReceipts[i] - grossRequirement[i];

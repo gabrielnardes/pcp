@@ -44,7 +44,7 @@ public class Item {
     }
 
     public MRP plan(double quantity) {
-        return new MRP(demand, initialStock, leadTime, lotSize, children, name, quantity);
+        return new MRP(demand, initialStock, leadTime, lotSize, children, name, quantity, safetyStock);
     }
 
     public void print() {
