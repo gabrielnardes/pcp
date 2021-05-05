@@ -83,10 +83,10 @@ public class Main {
 
 //        MRP - Materials Requirement Planning
 //        Need to create from bottom up. If create a top item with a undefined child, must create child
-/*
-        Item c = new Item("C", 100, 1, 50, 600);
-        Item d = new Item("D", 100, 2 , 100, 400);
         Item b = new Item("B", 50, 2, 20, 80);
+        Item d = new Item("D", 100, 2 , 100, 400);
+
+        Item c = new Item("C", 100, 1, 50, 600, new Child(b, 5));
 
         Item a = new Item("A", 50,  1, 0, 200, new Child(c, 4), new Child(d, 3));
         Item y = new Item("Y", 120, 1, 0, 140, new Child(a, 2), new Child(b, 1));
@@ -94,6 +94,10 @@ public class Main {
         y.demand(0, 0, 0, 120, 0, 50, 80, 90, 0, 180, 80, 90);
         MRP mrp = y.plan(1);
         mrp.print();
-*/
+
+        // BOM - Bill of Materials
+        BOM bom = y.bom(37);
+        bom.print();
+
     }
 }
