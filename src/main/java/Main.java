@@ -64,18 +64,36 @@ public class Main {
         r4.print();
         s4.print();
 */
-        // Errors
-//        Data d1 = new Data(12, 15, 13, 16, 14, 12);
-//        Data f1 = new Data(14, 13, 12, 13, 15, 14);
-//
-//        Error e1 = new Error(d1, f1);
-//        e1.mfe();
-//        e1.mad();
 
-//        Data d1 = new Data(8, 11, 12, 14);
-//        Data f1 = new Data(10, 10, 10, 10);
-//
-//        Error e1 = new Error(d1, f1);
-//        e1.trackingSignal();
+//        Errors
+/*
+        Data d1 = new Data(12, 15, 13, 16, 14, 12);
+        Data f1 = new Data(14, 13, 12, 13, 15, 14);
+
+        Error e1 = new Error(d1, f1);
+        e1.mfe();
+        e1.mad();
+
+        Data d1 = new Data(8, 11, 12, 14);
+        Data f1 = new Data(10, 10, 10, 10);
+
+        Error e1 = new Error(d1, f1);
+        e1.trackingSignal();
+*/
+
+//        MRP - Materials Requirement Planning
+//        Need to create from bottom up. If create a top item with a undefined child, must create child
+/*
+        Item c = new Item("C", 100, 1, 50, 600);
+        Item d = new Item("D", 100, 2 , 100, 400);
+        Item b = new Item("B", 50, 2, 20, 80);
+
+        Item a = new Item("A", 50,  1, 0, 200, new Child(c, 4), new Child(d, 3));
+        Item y = new Item("Y", 120, 1, 0, 140, new Child(a, 2), new Child(b, 1));
+
+        y.demand(0, 0, 0, 120, 0, 50, 80, 90, 0, 180, 80, 90);
+        MRP mrp = y.plan(1);
+        mrp.print();
+*/
     }
 }
