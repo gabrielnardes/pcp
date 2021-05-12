@@ -32,6 +32,20 @@ public class Item {
         // TODO Add set child
     }
 
+    public Child getChild(Item item) {
+        int i = 0;
+        boolean found = false;
+        Child foundChild = null;
+
+        while (!found) {
+            if (children.get(i).getItem().getName() == item.getName()) {
+                foundChild = children.get(i);
+                found = true;
+            }
+        }
+        return foundChild;
+    }
+
     public void deleteChild(Child child) {
         // TODO Add delete child
     }
