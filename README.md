@@ -30,7 +30,7 @@ Forecast errors
 
 :white_large_square: Calculate the order for all children of a item, unifying repeated items in a single production order
 
-:white_large_square: Add children after the creation of the item, set/update children and delete children
+:white_check_mark: Add children after the creation of the item, set/update children and delete children
 
 :white_check_mark: Generate Bill of Materiais (BOM)
 
