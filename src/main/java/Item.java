@@ -78,7 +78,7 @@ public class Item {
     public void print() {
         System.out.printf("Item{" +
                 "name='" + name + '\'' +
-                ", currentStock=" + initialStock +
+                ", initialStock=" + initialStock +
                 ", leadTime=" + leadTime +
                 ", safetyStock=" + safetyStock +
                 ", lotSize=" + lotSize +
