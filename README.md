@@ -32,7 +32,7 @@ Forecast errors
 
 :white_large_square: Add children after the creation of the item, set/update children and delete children
 
-:white_large_square: Generate Bill of Materiais (BOM)
+:white_check_mark: Generate Bill of Materiais (BOM)
 
 
 ### PERT/CPM
