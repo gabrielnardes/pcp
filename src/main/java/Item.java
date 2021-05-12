@@ -48,8 +48,20 @@ public class Item {
         return foundChild;
     }
 
-    public void deleteChild(Child child) {
-        // TODO Add delete child
+    public void deleteChild(Item item) {
+        if (getChild(item) != null) {
+            int i = 0;
+            boolean found = false;
+
+            // TODO Change to a limited search range
+            while (!found) {
+                if (children.get(i).getItem().getName() == item.getName()) {
+                    children.remove(i);
+                    found = true;
+                }
+                i++;
+            }
+        }
     }
 
     public void demand(double ... demand) {
