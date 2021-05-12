@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Item {
     private String name;
@@ -108,5 +109,18 @@ public class Item {
 
     public ArrayList<Child> getChildren() {
         return children;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", initialStock=" + initialStock +
+                ", leadTime=" + leadTime +
+                ", safetyStock=" + safetyStock +
+                ", lotSize=" + lotSize +
+                ", demand=" + Arrays.toString(demand) +
+                ", children=" + children +
+                '}';
     }
 }
