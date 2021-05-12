@@ -28,8 +28,8 @@ public class Item {
         this.children.add(child);
     }
 
-    public void setChild(Child child) {
-        // TODO Add set child
+    public void setChild(Item item, int quantity) {
+        getChild(item).setQuantity(quantity);
     }
 
     public Child getChild(Item item) {
