@@ -37,11 +37,13 @@ public class Item {
         boolean found = false;
         Child foundChild = null;
 
+        // TODO Change to a limited search range
         while (!found) {
             if (children.get(i).getItem().getName() == item.getName()) {
                 foundChild = children.get(i);
                 found = true;
             }
+            i++;
         }
         return foundChild;
     }
