@@ -37,4 +37,13 @@ public class BOM {
             System.out.printf("%s -> %d\n", entry.getKey(), entry.getValue());
         }
     }
+
+    @Override
+    public String toString() {
+        return "BOM{" +
+                "bom=" + bom +
+                ", rootItem='" + rootItemName + '\'' +
+                ", demand=" + demand +
+                '}';
+    }
 }
