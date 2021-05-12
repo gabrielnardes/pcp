@@ -1,14 +1,13 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class BOM {
     private HashMap<String, Integer> bom = new HashMap<String, Integer>();
-    private String rootItem;
+    private String rootItemName;
     private int demand;
 
     public BOM(Item item, int quantity) {
-        rootItem = item.getName();
+        rootItemName = item.getName();
         demand = quantity;
 
         createMap(item);
@@ -32,7 +31,7 @@ public class BOM {
     }
 
     public void print() {
-        System.out.printf("Bill of Materials for item %s\n", rootItem);
+        System.out.printf("Bill of Materials for item %s\n", rootItemName);
 
         for( Map.Entry<String, Integer> entry : bom.entrySet() ){
             System.out.printf("%s -> %d\n", entry.getKey(), entry.getValue());
