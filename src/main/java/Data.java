@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Data {
     private final double[] data;
 
@@ -19,5 +21,12 @@ public class Data {
 
     public double get (int i) {
         return data[i];
+    }
+
+    @Override
+    public String toString() {
+        return "Data{" +
+                "data=" + Arrays.toString(data) +
+                '}';
     }
 }
