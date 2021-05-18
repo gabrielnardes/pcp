@@ -60,4 +60,13 @@ public class Error {
 
         return trackingSignal;
     }
+
+    @Override
+    public String toString() {
+        return "Error{" +
+                "x=" + x +
+                ", y=" + y +
+                ", n=" + n +
+                '}';
+    }
 }
