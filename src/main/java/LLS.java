@@ -82,4 +82,12 @@ public class LLS {
 
         return new Data(y);
     }
+
+    @Override
+    public String toString() {
+        return "LLS{" +
+                "m=" + m +
+                ", b=" + b +
+                '}';
+    }
 }
