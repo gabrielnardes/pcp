@@ -32,7 +32,7 @@ Forecast errors
 
 :white_check_mark: Add children after the creation of the item, set/update children and delete children
 
-:white_check_mark: Generate Bill of Materiais (BOM)
+:white_check_mark: Generate Bill of Materials (BOM)
 
 
 ### PERT/CPM
@@ -58,7 +58,7 @@ Forecast errors
 
 FORECASTING
 
-You can do linear regression with the Linear Least Squares (LLS) method, like that:
+You can do linear regression with the Linear Least Squares method, like that:
 
 Create the data.
 ```
@@ -66,9 +66,9 @@ Data x = new Data(1, 2, 3, 4, 5, 6, 7, 8);
 Data y = new Data(256, 312, 426, 278, 298, 387, 517, 349);
 ```
 
-Put the data in the constructor of LLS.
+Put the data in the constructor of LinearLeastSquares.
 ```
-LLS lls = new LLS(x, y);
+LinearLeastSquares lls = new LinearLeastSquares(x, y);
 ```
 
 Print the results.
