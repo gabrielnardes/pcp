@@ -1,12 +1,12 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class BOM {
+public class Bom {
     private Map<String, Integer> bom = new HashMap<String, Integer>();
     private String rootItemName;
     private int demand;
 
-    public BOM(Item item, int quantity) {
+    public Bom(Item item, int quantity) {
         this.rootItemName = item.getName();
         this.demand = quantity;
 
