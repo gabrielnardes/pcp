@@ -26,8 +26,7 @@ public class Error {
         return errorSum / n;
     }
 
-    // Mean Absolute Deviation
-    public double mad() {
+    public double meanAbsoluteDeviation() {
         double errorSum = 0;
 
         for (int i = 0; i < n; i++) {
@@ -53,7 +52,7 @@ public class Error {
     }
 
     public double trackingSignal() {
-        double trackingSignal = rsfe() / mad();
+        double trackingSignal = rsfe() / meanAbsoluteDeviation();
 
         System.out.printf("\nTracking Signal: %.2f", trackingSignal);
 
