@@ -39,7 +39,7 @@ public class Error {
     }
 
     // Running Sum of the Forecast Errors
-    public double rsfe() {
+    public double runningSumOfForecastErrors() {
         double errorSum = 0;
 
         for (int i = 0; i < n; i++) {
@@ -52,7 +52,7 @@ public class Error {
     }
 
     public double trackingSignal() {
-        double trackingSignal = rsfe() / meanAbsoluteDeviation();
+        double trackingSignal = runningSumOfForecastErrors() / meanAbsoluteDeviation();
 
         System.out.printf("\nTracking Signal: %.2f", trackingSignal);
 
