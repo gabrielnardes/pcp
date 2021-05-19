@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BillOfMaterial {
-    private Map<String, Integer> bom = new HashMap<String, Integer>();
+    private Map<String, Integer> bom = new HashMap<>();
     private String rootItemName;
     private int demand;
 
