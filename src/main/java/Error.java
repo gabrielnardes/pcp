@@ -14,15 +14,14 @@ public class Error {
         this.n = x.length();
     }
 
-    // Mean Forecast Error
-    public double mfe() {
+    public double meanForecastError() {
         double errorSum = 0;
 
         for (int i = 0; i < n; i++) {
             errorSum += x.get(i) - y.get(i);
         }
 
-//        System.out.printf("\nMean Forecast Error: %.2f", errorSum / n);
+        System.out.printf("\nMean Forecast Error: %.2f", errorSum / n);
 
         return errorSum / n;
     }
