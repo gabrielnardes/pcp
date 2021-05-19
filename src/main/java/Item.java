@@ -15,7 +15,7 @@ public class Item {
         this.safetyStock = safetyStock;
         this.lotSize = lotSize;
 
-        this.children = new ArrayList<Child>();
+        this.children = new ArrayList<>();
         for (Child c : children) {
 //            c.print();
             this.children.add(c);
