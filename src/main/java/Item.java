@@ -63,7 +63,7 @@ public class Item {
     }
 
     public void print() {
-        System.out.printf("Item{" +
+        System.out.print("Item{" +
                 "name='" + name + '\'' +
                 ", initialStock=" + initialStock +
                 ", leadTime=" + leadTime +
