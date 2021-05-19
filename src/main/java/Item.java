@@ -90,8 +90,8 @@ public class Item {
         }
     }
 
-    public BOM bom(int quantity) {
-        return new BOM(this, quantity);
+    public BillOfMaterial bom(int quantity) {
+        return new BillOfMaterial(this, quantity);
     }
 
     public ArrayList<Child> getChildren() {
