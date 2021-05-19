@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Item {
     private String name;
@@ -8,7 +7,6 @@ public class Item {
     private double safetyStock;
     private double lotSize;
     private ArrayList<Child> children;
-    private double[] demand;
 
     public Item(String name, double initialStock, double leadTime, double safetyStock, double lotSize, Child... children) {
         this.name = name;
@@ -65,17 +63,6 @@ public class Item {
         }
     }
 
-    public void demand(double ... demand) {
-        this.demand = demand;
-        for (double d : this.demand) {
-//            System.out.printf("%.0f ", d);
-        }
-    }
-
-    public MRP plan(double quantity) {
-        return new MRP(demand, initialStock, leadTime, lotSize, children, name, quantity, safetyStock);
-    }
-
     public void print() {
         System.out.printf("Item{" +
                 "name='" + name + '\'' +
@@ -119,7 +106,6 @@ public class Item {
                 ", leadTime=" + leadTime +
                 ", safetyStock=" + safetyStock +
                 ", lotSize=" + lotSize +
-                ", demand=" + Arrays.toString(demand) +
                 ", children=" + children +
                 '}';
     }
