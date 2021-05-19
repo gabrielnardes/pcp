@@ -37,7 +37,7 @@ public class Item {
 
         // TODO Change to a limited search range
         while (!found) {
-            if (children.get(i).getItem().getName() == item.getName()) {
+            if (children.get(i).getItem().getName().equals(item.getName())) {
                 foundChild = children.get(i);
                 found = true;
             }
@@ -53,7 +53,7 @@ public class Item {
 
             // TODO Change to a limited search range
             while (!found) {
-                if (children.get(i).getItem().getName() == item.getName()) {
+                if (children.get(i).getItem().getName().equals(item.getName())) {
                     children.remove(i);
                     found = true;
                 }
