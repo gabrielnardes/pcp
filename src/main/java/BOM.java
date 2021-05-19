@@ -7,8 +7,8 @@ public class BOM {
     private int demand;
 
     public BOM(Item item, int quantity) {
-        rootItemName = item.getName();
-        demand = quantity;
+        this.rootItemName = item.getName();
+        this.demand = quantity;
 
         createMap(item);
         transverse(item, quantity);
