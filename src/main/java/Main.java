@@ -81,8 +81,8 @@ public class Main {
         e1.trackingSignal();
 */
 
-//        MRP - Materials Requirement Planning
-//        Need to create from bottom up. If create a top item with a undefined child, must create child
+//        MPS - Master Production Schedule
+/*
         Item b = new Item("B", 50, 2, 20, 80);
         Item d = new Item("D", 100, 2 , 100, 400);
 
@@ -91,13 +91,55 @@ public class Main {
         Item a = new Item("A", 50,  1, 0, 200, new Child(c, 4), new Child(d, 3));
         Item y = new Item("Y", 120, 1, 0, 140, new Child(a, 2), new Child(b, 1));
 
-        y.demand(0, 0, 0, 120, 0, 50, 80, 90, 0, 180, 80, 90);
-        MRP mrp = y.plan(1);
-        mrp.print();
+        Mps mps = new Mps(y, 0, 0, 0, 120, 0, 50, 80, 90, 0, 180, 80, 90);
+        mps.print();
+*/
 
         // BOM - Bill of Materials
-        BOM bom = y.bom(37);
+/*
+        BOM bom = y.bom(1);
         bom.print();
+*/
 
+        // Item manipulation methods
+/*
+        Item k = new Item("K", 10, 3, 50, 120);
+        Item b = new Item("B", 50, 2, 20, 80);
+        Item d = new Item("D", 100, 2 , 100, 400);
+
+        Item c = new Item("C", 100, 1, 50, 600, new Child(b, 5));
+
+        Item a = new Item("A", 50,  1, 0, 200, new Child(c, 4), new Child(d, 3));
+        Item y = new Item("Y", 120, 1, 0, 140, new Child(a, 2), new Child(b, 1));
+
+        System.out.print("Transverse and print item\n");
+        y.transverse();
+
+        System.out.print("\nAdd children after the creation of the item");
+        System.out.print("\nBefore\n");
+        y.printChildren();
+        y.addChild(new Child(k, 8));
+        System.out.print("\nAfter\n");
+        y.printChildren();
+
+        System.out.print("\nGet children\n");
+        y.getChild(a).print();
+        y.getChild(k).print();
+
+        System.out.print("\nSet/update children");
+        System.out.print("\nBefore\n");
+        y.getChild(k).print();
+        y.setChild(k, 9999);
+        System.out.print("\nAfter\n");
+        y.getChild(k).print();
+
+        // Delete children
+        System.out.print("\nDelete children");
+        System.out.print("\nBefore\n");
+        y.printChildren();
+        y.deleteChild(k);
+        System.out.print("\nAfter\n");
+        y.printChildren();
+*/
     }
 }
