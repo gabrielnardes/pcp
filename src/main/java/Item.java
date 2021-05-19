@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Item {
     private String name;
@@ -16,10 +17,8 @@ public class Item {
         this.lotSize = lotSize;
 
         this.children = new ArrayList<>();
-        for (Child c : children) {
-//            c.print();
-            this.children.add(c);
-        }
+
+        this.children.addAll(Arrays.asList(children));
     }
 
     public void addChild(Child child) {
