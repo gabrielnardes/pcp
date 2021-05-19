@@ -77,8 +77,8 @@ public class Item {
     }
 
     public void printChildren() {
-        for (int i = 0; i < children.size(); i++) {
-            children.get(i).print();
+        for (Child child : children) {
+            child.print();
         }
     }
 
