@@ -1,10 +1,8 @@
-//import static java.lang.Math.abs;
-
-public class LLS {
+public class LinearLeastSquares {
     private final double m;
     private final double b;
 
-    public LLS(Data x, Data y) {
+    public LinearLeastSquares(Data x, Data y) {
 
         if (x.length() != y.length()) {
             System.out.println("X and Y data set must be equal length");
