@@ -109,4 +109,20 @@ public class Item {
                 ", children=" + children +
                 '}';
     }
+
+    public double getLeadTime() {
+        return leadTime;
+    }
+
+    public double getSafetyStock() {
+        return safetyStock;
+    }
+
+    public double getLotSize() {
+        return lotSize;
+    }
+
+    public double getInitialStock() {
+        return initialStock;
+    }
 }
