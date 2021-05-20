@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SimpleMovingAverageTest {
     @Test
-    @DisplayName("Testing get() method")
+    @DisplayName("Testing calc() method")
     public void testCalc() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
         SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
