@@ -1,3 +1,5 @@
+package forecasting;
+
 import data.Data;
 
 public class WMA {
@@ -41,5 +43,13 @@ public class WMA {
 
             this.wma[i] = sum;
         }
+    }
+
+    public double[] getWma() {
+        return wma;
+    }
+
+    public double get(int i) {
+        return wma[i];
     }
 }
