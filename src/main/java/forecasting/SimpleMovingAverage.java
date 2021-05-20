@@ -2,12 +2,12 @@ package forecasting;
 
 import data.Data;
 
-public class SMA {
+public class SimpleMovingAverage {
     private final Data d;
     private final double[] sma;
     private final int period;
 
-    public SMA(Data _d, int period) {
+    public SimpleMovingAverage(Data _d, int period) {
         this.d = _d;
         this.period = period;
 
