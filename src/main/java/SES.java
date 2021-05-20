@@ -1,3 +1,6 @@
+import data.Data;
+import forecasting.SimpleMovingAverage;
+
 public class SES {
     private final Data d;
     private final double[] ses;
@@ -50,7 +53,7 @@ public class SES {
             }
 
             Data d = new Data(d1);
-            SMA sma = new SMA(d, period);
+            SimpleMovingAverage sma = new SimpleMovingAverage(d, period);
 
             sma.calc();
 
