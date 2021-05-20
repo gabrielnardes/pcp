@@ -9,12 +9,12 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SMATest {
+class SimpleMovingAverageTest {
     @Test
     @DisplayName("Testing get() method")
     public void testCalc() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        SMA sma = new SMA(data, 2);
+        SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
         double[] smaTest = {25.00, 24.00, 23.50, 22.00, 25.00, 28.50, 22.00, 23.50, 26.50, 27.00, 26.50};
 
         sma.calc();
@@ -28,7 +28,7 @@ class SMATest {
     @DisplayName("Testing get() method")
     public void testGet() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        SMA sma = new SMA(data, 2);
+        SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
         double[] smaTest = {25.00, 24.00, 23.50, 22.00, 25.00, 28.50, 22.00, 23.50, 26.50, 27.00, 26.50};
 
         sma.calc();
@@ -40,7 +40,7 @@ class SMATest {
     @DisplayName("Testing getSma() method")
     public void testGetSma() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        SMA sma = new SMA(data, 2);
+        SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
         double[] smaTest = sma.getSma();
 
         sma.calc();
@@ -57,7 +57,7 @@ class SMATest {
         System.setOut(new PrintStream(outContent));
 
         Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        SMA sma = new SMA(d, 2);
+        SimpleMovingAverage sma = new SimpleMovingAverage(d, 2);
         sma.calc();
         sma.print();
 

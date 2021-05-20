@@ -1,3 +1,5 @@
+import data.Data;
+
 public class WMA {
     private final Data d;
     private final double[] wma;
