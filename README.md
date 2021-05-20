@@ -52,7 +52,7 @@ Forecast errors
 ### NOT ANYTIME SOON
 :white_large_square: Generate PDF reports with tables, graphs, all the pretty stuff
 
-:white_large_square: Send reports to a email list
+:white_large_square: Send reports to an email list
 
 ### PREVIEW
 
@@ -92,8 +92,8 @@ Error e = new Error(d, f);
 
 Calculate the Mean Forecast Error, Mean Absolute Deviation and Tracking Signal errors.
 ```
-e.mfe();
-e.mad();
+e.meanForecastError();
+e.meanAbsoluteDeviation();
 e.trackingSignal();
 ```
 
@@ -103,7 +103,7 @@ Given a tree of materials, and the requirements for the root item, you can gener
 
 <img src="img/tree.png" width="40%"/>
 
-Here is the constructor of a item and it's children:
+Here is the constructor of an item, and it's children:
 ```
 public Item(String name, double initialStock, double leadTime, double safetyStock, double lotSize, Child... children);
 public Child(Item item, int quantity);
@@ -123,7 +123,7 @@ Set the demand for the root item.
 y.demand(0, 0, 0, 120, 0, 50, 80, 90, 0, 180, 80, 90);
 ```
 
-Calculate the planned order release. The argument in plan() is the multiplicative of the item for a given tree. For the root item, it will always be 1. In the case of item A, for this tree, it will be 2, and for C, it will be 4.
+Calculate the planned order release. The argument in plan() is the multiple of the item for a given tree. For the root item, it will always be 1. In the case of item A, for this tree, it will be 2, and for C, it will be 4.
 ```
 MRP mrp = y.plan(1);
 ```
