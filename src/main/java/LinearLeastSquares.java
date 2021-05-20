@@ -1,3 +1,5 @@
+import data.Data;
+
 public class LinearLeastSquares {
     private final double m;
     private final double b;
