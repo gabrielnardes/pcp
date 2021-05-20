@@ -2,13 +2,13 @@ package forecasting;
 
 import data.Data;
 
-public class WMA {
+public class WeightedMovingAverage {
     private final Data d;
     private final double[] wma;
     private final double[] w;
     private final int period;
 
-    public WMA(Data _d, int period, double ... w) {
+    public WeightedMovingAverage(Data _d, int period, double ... w) {
         this.d = _d;
         this.period = period;
         this.w = w;

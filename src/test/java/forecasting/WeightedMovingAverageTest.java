@@ -9,12 +9,12 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class WMATest {
+class WeightedMovingAverageTest {
     @Test
     @DisplayName("Testing calc() method")
     void testCalc() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        WMA wma = new WMA(data, 3,0.5, 0.3, 0.2);
+        WeightedMovingAverage wma = new WeightedMovingAverage(data, 3,0.5, 0.3, 0.2);
         double[] wmaTest = {24.20, 24.60, 22.30, 24.40, 24.00, 26.90, 24.20, 22.50, 27.70, 25.60};
 
         wma.calc();
@@ -28,7 +28,7 @@ class WMATest {
     @DisplayName("Testing get() method")
     public void testGet() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        WMA wma = new WMA(data, 3,0.5, 0.3, 0.2);
+        WeightedMovingAverage wma = new WeightedMovingAverage(data, 3,0.5, 0.3, 0.2);
 
         wma.calc();
 
@@ -39,7 +39,7 @@ class WMATest {
     @DisplayName("Testing getSma() method")
     public void testGetSma() {
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        WMA wma = new WMA(data, 3,0.5, 0.3, 0.2);
+        WeightedMovingAverage wma = new WeightedMovingAverage(data, 3,0.5, 0.3, 0.2);
         double[] wmaTest = wma.getWma();
 
         wma.calc();
@@ -56,7 +56,7 @@ class WMATest {
         System.setOut(new PrintStream(outContent));
 
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        WMA wma = new WMA(data, 3,0.5, 0.3, 0.2);
+        WeightedMovingAverage wma = new WeightedMovingAverage(data, 3,0.5, 0.3, 0.2);
         wma.calc();
         wma.print();
 
@@ -85,7 +85,7 @@ class WMATest {
         System.setOut(new PrintStream(outContent));
 
         Data data = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        WMA wma = new WMA(data, 3,0.9, 0.9, 0.9);
+        WeightedMovingAverage wma = new WeightedMovingAverage(data, 3,0.9, 0.9, 0.9);
         wma.calc();
 
         String expectedOutput  = "Weight sum not equal to 1\n";
