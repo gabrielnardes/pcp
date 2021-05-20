@@ -1,6 +1,23 @@
 # Production Planning & Control
 
-In order to learn some Java, I will build this PCP application. Right now I'm focusing on the business logic (forecasting, MRP and PERT/CPM), and after that I will make it useful. Here is the roadmap: 
+In order to learn some Java, I will build this PCP application. Right now I'm focusing on the business logic (forecasting, MRP and PERT/CPM), and after that I will make it useful.
+
+The roadmap is divided in three steps: make it work, make it right, and make it fast. I will add or remove goals as I see if they are ok or not, if I can decompose in sub-goals, etc. There are features that are too far way of being implemented, so I put them in a separate section. This README ends with a section showing some preview of the application.
+
+In the meantime, I will try to employ a DevOps pipeline in the project. Right now (and this may change), the tools I will be using in each step are:
+
+- **Plan**: my head.
+- **Code**: Java, IntelliJ, Git and GitHub.
+- **Build**: Gradle.
+- **Test**: JUnit, Selenium(maybe?).
+- **Release**: GitHub Actions.
+- **Deploy**: Docker, (first Heroku, and later AWS).
+- **Operate**: Kubernetes.
+- **Monitor**: I have no idea.
+
+Since I'm learning while developing this project, some of this can be really wrong, or unnecessary.
+
+## 1. MAKE IT WORK
 
 ### FORECASTING
 
@@ -34,11 +51,12 @@ Forecast errors
 
 :white_check_mark: Generate Bill of Materials (BOM)
 
-
 ### PERT/CPM
 :white_large_square: PERT/CPM
 
-### MAKING IT USABLE
+## 2. MAKE IT RIGHT
+:white_check_mark: Add unit tests with JUnit
+
 :white_large_square: Build the project as a Spring API
 
 :white_large_square: Add user login (OAuth maybe?)
@@ -49,12 +67,27 @@ Forecast errors
 
 :white_large_square: Develop a desktop user interface (maybe Electron, maybe JavaFX, don't know yet)
 
-### NOT ANYTIME SOON
+## 3. MAKE IT FAST (not much, actually)
+:white_large_square: Add integration tests
+
+:white_large_square: Add CI/CD (probably GitHub Actions)
+
+:white_large_square: Use docker
+
+:white_large_square: Use kubernetes
+
+:white_large_square: Deploy somewhere (AWS? Heroku?)
+
+:white_large_square: Add some monitoring tools
+
+:white_large_square: Rewrite the entire project in Assembly
+
+## 4. NOT ANYTIME SOON
 :white_large_square: Generate PDF reports with tables, graphs, all the pretty stuff
 
 :white_large_square: Send reports to an email list
 
-### PREVIEW
+## PREVIEW
 
 FORECASTING
 
