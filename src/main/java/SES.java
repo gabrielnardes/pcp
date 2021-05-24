@@ -65,4 +65,8 @@ public class SES {
             }
         }
     }
+
+    public double[] getSes() {
+        return ses;
+    }
 }
