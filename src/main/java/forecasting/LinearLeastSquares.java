@@ -61,7 +61,7 @@ public class LinearLeastSquares {
         return new Data(y);
     }
 
-    public Data season(Data demand, Data regression, int period) {
+    public Data seasoned(Data demand, Data regression, int period) {
         double[] ratio = new double[demand.length()];
         for (int i = 0; i < ratio.length; i++) {
             ratio[i] = demand.get(i) / regression.get(i);
