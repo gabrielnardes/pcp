@@ -3,13 +3,13 @@ package forecasting;
 import data.Data;
 import forecasting.SimpleMovingAverage;
 
-public class simpleExponentialSmoothing {
+public class SimpleExponentialSmoothing {
     private final Data d;
     private final double[] ses;
     private final int period;
     private final double a;
 
-    public simpleExponentialSmoothing(Data d, int period, double a) {
+    public SimpleExponentialSmoothing(Data d, int period, double a) {
         if (a > 1.0 | a < 0.0) {
             System.out.println("Alpha must be between 0.0 and 1.0");
         }

@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class simpleExponentialSmoothingTest {
+class SimpleExponentialSmoothingTest {
 
     @Test
     @DisplayName("Testing print() method")
@@ -18,7 +18,7 @@ class simpleExponentialSmoothingTest {
         System.setOut(new PrintStream(outContent));
 
         Data d = new Data(1, 432, 6, 12313, 534, 54);
-        simpleExponentialSmoothing ses = new simpleExponentialSmoothing(d, 1, 0.012);
+        SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 1, 0.012);
         ses.calc();
         ses.print();
 
@@ -40,7 +40,7 @@ class simpleExponentialSmoothingTest {
     @DisplayName("Testing 1 calc() method")
     void calc1() {
         Data d = new Data(1, 432, 6, 12313, 534, 54);
-        simpleExponentialSmoothing ses = new simpleExponentialSmoothing(d, 1, 0.012);
+        SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 1, 0.012);
         ses.calc();
 
         double[] expectedSes = {1.000, 6.172, 6.170, 153.852, 158.414, 157.162};
@@ -53,7 +53,7 @@ class simpleExponentialSmoothingTest {
     @DisplayName("Testing 2 calc() method")
     void calc2() {
         Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        simpleExponentialSmoothing ses = new simpleExponentialSmoothing(d, 2, 0.8);
+        SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 2, 0.8);
         ses.calc();
         ses.print();
 
@@ -67,7 +67,7 @@ class simpleExponentialSmoothingTest {
     @DisplayName("Testing 3 calc() method")
     void calc3() {
         Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        simpleExponentialSmoothing ses = new simpleExponentialSmoothing(d, 4, 0.4);
+        SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 4, 0.4);
         ses.calc();
 
         double[] expectedSes = {22.150, 25.690, 25.814, 22.688, 25.213, 24.728, 26.837, 25.302};
