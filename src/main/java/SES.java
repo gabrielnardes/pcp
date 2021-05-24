@@ -33,7 +33,7 @@ public class SES {
         int adjust = period > 1 ? 2: 1;
 
         for (int i = 0; i < ses.length; i++) {
-            System.out.printf("F[%d]: %.1f\n", i + period + adjust, ses[i]);
+            System.out.printf("F[%d]: %.3f\n", i + period + adjust, ses[i]);
         }
     }
 
