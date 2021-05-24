@@ -17,12 +17,16 @@ public class Data {
         System.out.println("\nDATA");
 
         for (int i = 0; i < data.length; i++) {
-            System.out.printf("d[%d]: %.1f\n", i+1, data[i]);
+            System.out.printf("d[%d]: %.3f\n", i+1, data[i]);
         }
     }
 
     public double get (int i) {
         return data[i];
+    }
+
+    public double[] getData() {
+        return data;
     }
 
     @Override
