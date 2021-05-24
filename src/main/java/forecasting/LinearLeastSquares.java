@@ -1,3 +1,5 @@
+package forecasting;
+
 import data.Data;
 
 public class LinearLeastSquares {
