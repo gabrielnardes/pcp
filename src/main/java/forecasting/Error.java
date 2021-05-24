@@ -1,3 +1,5 @@
+package forecasting;
+
 import data.Data;
 
 public class Error {
@@ -23,7 +25,7 @@ public class Error {
             errorSum += x.get(i) - y.get(i);
         }
 
-        System.out.printf("\nMean Forecast Error: %.2f", errorSum / n);
+        System.out.printf("\nMean Forecast forecasting.Error: %.2f", errorSum / n);
 
         return errorSum / n;
     }
@@ -63,7 +65,7 @@ public class Error {
 
     @Override
     public String toString() {
-        return "Error{" +
+        return "forecasting.Error{" +
                 "x=" + x +
                 ", y=" + y +
                 ", n=" + n +
