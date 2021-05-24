@@ -1,13 +1,15 @@
+package forecasting;
+
 import data.Data;
 import forecasting.SimpleMovingAverage;
 
-public class SES {
+public class simpleExponentialSmoothing {
     private final Data d;
     private final double[] ses;
     private final int period;
     private final double a;
 
-    public SES(Data d, int period, double a) {
+    public simpleExponentialSmoothing(Data d, int period, double a) {
         if (a > 1.0 | a < 0.0) {
             System.out.println("Alpha must be between 0.0 and 1.0");
         }
@@ -28,7 +30,7 @@ public class SES {
     }
 
     public void print() {
-        System.out.println("SES with period " + period);
+        System.out.println("forecasting.SES with period " + period);
 
         int adjust = period > 1 ? 2: 1;
 
