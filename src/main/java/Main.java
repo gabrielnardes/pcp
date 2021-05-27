@@ -1,5 +1,6 @@
 import data.Data;
 import forecasting.Error;
+import masterProductionSchedule.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -109,9 +110,10 @@ public class Main {
         Item a = new Item("A", 50,  1, 0, 200, new Child(c, 4), new Child(d, 3));
         Item y = new Item("Y", 120, 1, 0, 140, new Child(a, 2), new Child(b, 1));
 
-        BillOfMaterial billOfMaterial = y.bom(2);
-        billOfMaterial.print();
+        BillOfMaterial bom = y.bom(2);
+        bom.print();
 */
+
 //      Item manipulation methods
 /*
         Item k = new Item("K", 10, 3, 50, 120);
