@@ -1,3 +1,5 @@
+package masterProductionSchedule;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -63,7 +65,7 @@ public class Item {
     }
 
     public void print() {
-        System.out.print("Item{" +
+        System.out.print("masterProductionSchedule.Item{" +
                 "name='" + name + '\'' +
                 ", initialStock=" + initialStock +
                 ", leadTime=" + leadTime +
@@ -99,7 +101,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "masterProductionSchedule.Item{" +
                 "name='" + name + '\'' +
                 ", initialStock=" + initialStock +
                 ", leadTime=" + leadTime +

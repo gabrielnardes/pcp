@@ -1,3 +1,5 @@
+package masterProductionSchedule;
+
 public class Child {
     private Item item;
     private int quantity;
@@ -26,7 +28,7 @@ public class Child {
 
     @Override
     public String toString() {
-        return "Child{" +
+        return "masterProductionSchedule.Child{" +
                 "item=" + item +
                 ", quantity=" + quantity +
                 '}';
