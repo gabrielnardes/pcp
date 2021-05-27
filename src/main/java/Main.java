@@ -1,7 +1,3 @@
-import data.Data;
-import forecasting.Error;
-import masterProductionSchedule.*;
-
 public class Main {
     public static void main(String[] args) {
 //      Simple moving averages

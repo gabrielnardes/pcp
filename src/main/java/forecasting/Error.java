@@ -1,7 +1,5 @@
 package forecasting;
 
-import data.Data;
-
 public class Error {
     Data x;
     Data y;

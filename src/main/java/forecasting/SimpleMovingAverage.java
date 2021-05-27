@@ -1,7 +1,5 @@
 package forecasting;
 
-import data.Data;
-
 public class SimpleMovingAverage {
     private final Data d;
     private final double[] sma;

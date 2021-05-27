@@ -1,5 +1,6 @@
-package data;
+package forecasting;
 
+import forecasting.Data;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

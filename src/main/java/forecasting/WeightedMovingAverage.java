@@ -1,7 +1,5 @@
 package forecasting;
 
-import data.Data;
-
 public class WeightedMovingAverage {
     private final Data d;
     private final double[] wma;

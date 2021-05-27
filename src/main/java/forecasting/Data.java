@@ -1,4 +1,4 @@
-package data;
+package forecasting;
 
 import java.util.Arrays;
 

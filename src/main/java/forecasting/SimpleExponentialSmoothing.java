@@ -1,8 +1,5 @@
 package forecasting;
 
-import data.Data;
-import forecasting.SimpleMovingAverage;
-
 public class SimpleExponentialSmoothing {
     private final Data d;
     private final double[] ses;
