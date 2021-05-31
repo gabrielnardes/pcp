@@ -1,4 +1,4 @@
-package masterProductionSchedule;
+package com.gabrielnardes.pcpapi.entity.masterProductionSchedule;
 
 public class Child {
     private Item item;
@@ -28,7 +28,7 @@ public class Child {
 
     @Override
     public String toString() {
-        return "masterProductionSchedule.Child{" +
+        return "com.gabrielnardes.pcp.entity.masterProductionSchedule.Child{" +
                 "item=" + item +
                 ", quantity=" + quantity +
                 '}';

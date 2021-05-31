@@ -1,4 +1,4 @@
-package masterProductionSchedule;
+package com.gabrielnardes.pcpapi.entity.masterProductionSchedule;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package forecasting;
+package com.gabrielnardes.pcpapi.entity.forecasting;
 
-import forecasting.Data;
+import com.gabrielnardes.pcpapi.entity.forecasting.Data;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

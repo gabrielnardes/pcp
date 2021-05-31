@@ -1,4 +1,4 @@
-package forecasting;
+package com.gabrielnardes.pcpapi.entity.forecasting;
 
 public class SimpleMovingAverage {
     private final Data d;

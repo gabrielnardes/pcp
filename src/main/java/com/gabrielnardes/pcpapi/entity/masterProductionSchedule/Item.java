@@ -1,4 +1,4 @@
-package masterProductionSchedule;
+package com.gabrielnardes.pcpapi.entity.masterProductionSchedule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +65,7 @@ public class Item {
     }
 
     public void print() {
-        System.out.print("masterProductionSchedule.Item{" +
+        System.out.print("com.gabrielnardes.pcp.entity.masterProductionSchedule.Item{" +
                 "name='" + name + '\'' +
                 ", initialStock=" + initialStock +
                 ", leadTime=" + leadTime +
@@ -101,7 +101,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "masterProductionSchedule.Item{" +
+        return "com.gabrielnardes.pcp.entity.masterProductionSchedule.Item{" +
                 "name='" + name + '\'' +
                 ", initialStock=" + initialStock +
                 ", leadTime=" + leadTime +

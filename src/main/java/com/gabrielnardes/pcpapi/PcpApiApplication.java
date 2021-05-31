@@ -1,9 +1,19 @@
-public class Main {
-    public static void main(String[] args) {
+package com.gabrielnardes.pcpapi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PcpApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PcpApiApplication.class, args);
+		System.out.println("Server on");
+
 //      Simple moving averages
 /*
         Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        System.out.println(d.toString());
+        System.out.println(d);
         SimpleMovingAverage sma = new SimpleMovingAverage(d, 2);
         sma.calc();
         sma.print();
@@ -11,7 +21,7 @@ public class Main {
 
 //      Weighted moving averages
 /*
-        Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
+		Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
         WeightedMovingAverage wma = new WeightedMovingAverage(d, 3,0.5, 0.3, 0.2);
         wma.calc();
         wma.print();
@@ -19,8 +29,8 @@ public class Main {
 
 //      Simple exponential smoothing
 /*
-        Data d = new Data(1, 432, 6, 12313, 534, 54);
-        SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 1, 0.012);
+		Data d = new Data(1, 432, 6, 12313, 534, 54);
+		SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 1, 0.012);
         ses.calc();
         ses.print();
 
@@ -150,5 +160,6 @@ public class Main {
         System.out.print("\nAfter\n");
         y.printChildren();
 */
-    }
+	}
+
 }
