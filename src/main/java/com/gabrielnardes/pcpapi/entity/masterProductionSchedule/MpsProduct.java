@@ -1,4 +1,4 @@
-package masterProductionSchedule;
+package com.gabrielnardes.pcpapi.entity.masterProductionSchedule;
 
 import java.util.Arrays;
 
@@ -36,7 +36,7 @@ public class MpsProduct {
 
     @Override
     public String toString() {
-        return "masterProductionSchedule.MpsProduct{" +
+        return "com.gabrielnardes.pcp.entity.masterProductionSchedule.MpsProduct{" +
                 "grossRequirement=" + Arrays.toString(grossRequirement) +
                 "\nscheduledReceipts=" + Arrays.toString(scheduledReceipts) +
                 "\nprojectedAvailable=" + Arrays.toString(projectedAvailable) +
@@ -45,7 +45,7 @@ public class MpsProduct {
     }
 
     public void print() {
-        System.out.printf("masterProductionSchedule.Item: %s\n", item.getName());
+        System.out.printf("com.gabrielnardes.pcp.entity.masterProductionSchedule.Item: %s\n", item.getName());
 
         System.out.print("Gross Requirement     ");
         for (double el : grossRequirement) {
