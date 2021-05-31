@@ -1,6 +1,17 @@
-package com.gabrielnardes.pcpapi.entity.forecasting;
+package com.gabrielnardes.pcpapi.forecasting.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class SimpleMovingAverage {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
     private final Data d;
     private final double[] sma;
     private final int period;

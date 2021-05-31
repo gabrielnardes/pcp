@@ -1,4 +1,4 @@
-package com.gabrielnardes.pcpapi.entity.forecasting;
+package com.gabrielnardes.pcpapi.forecasting.entity;
 
 public class WeightedMovingAverage {
     private final Data d;

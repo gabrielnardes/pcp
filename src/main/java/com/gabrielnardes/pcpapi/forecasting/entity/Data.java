@@ -1,4 +1,4 @@
-package com.gabrielnardes.pcpapi.entity.forecasting;
+package com.gabrielnardes.pcpapi.forecasting.entity;
 
 import java.util.Arrays;
 

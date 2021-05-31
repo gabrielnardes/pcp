@@ -1,13 +1,15 @@
-package com.gabrielnardes.pcpapi.entity.forecasting;
+package com.gabrielnardes.pcpapi.forecasting.entity;
 
 public class SimpleExponentialSmoothing {
+
+    private long id;
     private final Data d;
     private final double[] ses;
     private final int period;
-    private final double a;
+    private final double alpha;
 
-    public SimpleExponentialSmoothing(Data d, int period, double a) {
-        if (a > 1.0 | a < 0.0) {
+    public SimpleExponentialSmoothing(Data d, int period, double alpha) {
+        if (alpha > 1.0 | alpha < 0.0) {
             System.out.println("Alpha must be between 0.0 and 1.0");
         }
 
@@ -17,7 +19,7 @@ public class SimpleExponentialSmoothing {
 
         this.d = d;
         this.period = period;
-        this.a = a;
+        this.alpha = alpha;
 
         if (period == 1) {
             ses = new double[(int) d.length()];
@@ -41,7 +43,7 @@ public class SimpleExponentialSmoothing {
             ses[0] = d.get(0);
 
             for (int i = 1; i < ses.length; i++) {
-                ses[i] = ses[i-1] + a * (d.get(i) - ses[i-1]);
+                ses[i] = ses[i-1] + alpha * (d.get(i) - ses[i-1]);
 //                System.out.printf("%d: %.1f = %.1f + %.1f * (%.1f - %.1f)\n", i, ses[i], ses[i-1], a, d.get(i), ses[i-1]);
             }
         } else {
@@ -56,10 +58,10 @@ public class SimpleExponentialSmoothing {
 
             sma.calc();
 
-            ses[0] = sma.get(0) + a * (this.d.get(period) - sma.get(0));
+            ses[0] = sma.get(0) + alpha * (this.d.get(period) - sma.get(0));
 
             for (int i = 1; i < ses.length; i++) {
-                ses[i] = ses[i-1] + a * (this.d.get(i+period) - ses[i-1]);
+                ses[i] = ses[i-1] + alpha * (this.d.get(i+period) - ses[i-1]);
 //                System.out.printf("%d: %.1f = %.1f + %.1f * (%.1f - %.1f)\n", i+period+2, ses[i], ses[i-1], a, d.get(i+period), ses[i-1]);
             }
         }
