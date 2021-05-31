@@ -1,3 +1,7 @@
+### Etc ###
+*.xlsx
+*.pdf
+
 HELP.md
 .gradle
 build/
