@@ -3,6 +3,7 @@ package com.gabrielnardes.pcpapi.forecasting.controller;
 import com.gabrielnardes.pcpapi.forecasting.entity.SimpleMovingAverage;
 import com.gabrielnardes.pcpapi.forecasting.repository.SimpleMovingAverageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -14,8 +15,7 @@ public class SimpleMovingAverageController {
     private SimpleMovingAverageRepository simpleMovingAverageRepository;
 
     @GetMapping()
-    public @ResponseBody Iterable<SimpleMovingAverage> getAll() {
-        // This returns a JSON or XML with the users
+    public @ResponseBody Iterable<SimpleMovingAverage> listAll() {
         return simpleMovingAverageRepository.findAll();
     }
 
@@ -26,6 +26,7 @@ public class SimpleMovingAverageController {
     }
 
     @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody SimpleMovingAverage add(@RequestBody SimpleMovingAverage sma) {
         return simpleMovingAverageRepository.save(sma);
     }
