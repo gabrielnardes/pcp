@@ -36,4 +36,11 @@ public class SimpleMovingAverageController {
     public void deleteById(@PathVariable Long id) {
         simpleMovingAverageRepository.deleteById(id);
     }
+
+    @PutMapping("/{id}")
+    public @ResponseBody SimpleMovingAverage updateById(@PathVariable Long id, @RequestBody SimpleMovingAverage sma) {
+        SimpleMovingAverage newSma = new SimpleMovingAverage(id, sma.getPeriod());
+
+        return simpleMovingAverageRepository.save(newSma);
+    }
 }
