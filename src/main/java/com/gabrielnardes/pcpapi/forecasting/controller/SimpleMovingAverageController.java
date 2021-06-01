@@ -28,6 +28,7 @@ public class SimpleMovingAverageController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody SimpleMovingAverage create(@RequestBody SimpleMovingAverage sma) {
+        sma.calc();
         return simpleMovingAverageRepository.save(sma);
     }
 
@@ -39,7 +40,8 @@ public class SimpleMovingAverageController {
 
     @PutMapping("/{id}")
     public @ResponseBody SimpleMovingAverage update(@PathVariable Long id, @RequestBody SimpleMovingAverage sma) {
-        SimpleMovingAverage newSma = new SimpleMovingAverage(id, sma.getPeriod());
+        SimpleMovingAverage newSma = new SimpleMovingAverage(id, sma.getPeriod(), sma.getData());
+        newSma.calc();
 
         return simpleMovingAverageRepository.save(newSma);
     }

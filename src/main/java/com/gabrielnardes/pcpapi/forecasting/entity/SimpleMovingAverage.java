@@ -1,16 +1,36 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
+import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+
 import javax.persistence.*;
 
 @Entity
+@TypeDefs({
+        @TypeDef(
+                name = "double-array",
+                typeClass = DoubleArrayType.class
+        )
+})
 public class SimpleMovingAverage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+//    @Column(nullable = false)
+    @Type( type = "double-array" )
+    @Column(
+            columnDefinition = "double precision[]"
+    )
     private double[] data;
 
+    @Type( type = "double-array" )
+    @Column(
+            columnDefinition = "double precision[]"
+    )
     private double[] sma;
 
     @Column(nullable = false)
@@ -31,6 +51,8 @@ public class SimpleMovingAverage {
     }
 
     public void calc() {
+        sma = new double[this.data.length - period + 1];
+
         for (int i = 0; i <= data.length - period; i++) {
             double sum = 0;
 
@@ -62,6 +84,12 @@ public class SimpleMovingAverage {
         this.period = period;
     }
 
+    public SimpleMovingAverage(long id, int period, double[] data) {
+        this.id = id;
+        this.period = period;
+        this.data = data;
+    }
+
     public long getId() {
         return id;
     }
@@ -76,5 +104,17 @@ public class SimpleMovingAverage {
 
     public void setPeriod(int period) {
         this.period = period;
+    }
+
+    public double[] getData() {
+        return data;
+    }
+
+    public void setData(double[] data) {
+        this.data = data;
+    }
+
+    public void setSma(double[] sma) {
+        this.sma = sma;
     }
 }

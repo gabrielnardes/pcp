@@ -19,6 +19,7 @@ dependencies {
 	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.20'
 	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+	implementation 'com.vladmihalcea:hibernate-types-52:2.11.1'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
