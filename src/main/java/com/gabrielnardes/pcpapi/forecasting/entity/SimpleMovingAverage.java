@@ -2,6 +2,7 @@ package com.gabrielnardes.pcpapi.forecasting.entity;
 
 import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor
 @TypeDefs({
         @TypeDef(
                 name = "double-array",
@@ -62,18 +64,6 @@ public class SimpleMovingAverage {
         return sma[i];
     }
 
-    public SimpleMovingAverage() {
-    }
-
-    public SimpleMovingAverage(int period) {
-        this.period = period;
-    }
-
-    public SimpleMovingAverage(long id, int period) {
-        this.id = id;
-        this.period = period;
-    }
-
     public SimpleMovingAverage(double[] data, int period) {
         this.data = data;
         this.period = period;
@@ -86,16 +76,4 @@ public class SimpleMovingAverage {
         this.data = data;
         this.sma = new double[this.data.length - period + 1];
     }
-
-//    public long getId() { return id; }
-//    public void setId(long id) { this.id = id; }
-//
-//    public int getPeriod() { return period; }
-//    public void setPeriod(int period) { this.period = period; }
-//
-//    public double[] getData() { return data; }
-//    public void setData(double[] data) { this.data = data; }
-//
-//    public double[] getSma() { return sma; }
-//    public void setSma(double[] sma) { this.sma = sma; }
 }
