@@ -39,13 +39,6 @@ public class SimpleMovingAverage {
     @Column(nullable = false)
     private int period;
 
-    public void print() {
-        System.out.println("SMA with period " + period);
-        for (int i = 0; i < sma.length; i++) {
-            System.out.printf("P[%d]: %.2f\n", i + period, sma[i]);
-        }
-    }
-
     public void calc() {
         sma = new double[this.data.length - period + 1];
 
