@@ -27,7 +27,13 @@ public class SimpleMovingAverageController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody SimpleMovingAverage add(@RequestBody SimpleMovingAverage sma) {
+    public @ResponseBody SimpleMovingAverage create(@RequestBody SimpleMovingAverage sma) {
         return simpleMovingAverageRepository.save(sma);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) {
+        simpleMovingAverageRepository.deleteById(id);
     }
 }
