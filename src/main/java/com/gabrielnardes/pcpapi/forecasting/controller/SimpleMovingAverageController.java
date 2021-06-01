@@ -15,7 +15,7 @@ public class SimpleMovingAverageController {
     private SimpleMovingAverageRepository simpleMovingAverageRepository;
 
     @GetMapping()
-    public @ResponseBody Iterable<SimpleMovingAverage> listAll() {
+    public @ResponseBody Iterable<SimpleMovingAverage> findAll() {
         return simpleMovingAverageRepository.findAll();
     }
 
@@ -33,12 +33,12 @@ public class SimpleMovingAverageController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) {
+    public void delete(@PathVariable Long id) {
         simpleMovingAverageRepository.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public @ResponseBody SimpleMovingAverage updateById(@PathVariable Long id, @RequestBody SimpleMovingAverage sma) {
+    public @ResponseBody SimpleMovingAverage update(@PathVariable Long id, @RequestBody SimpleMovingAverage sma) {
         SimpleMovingAverage newSma = new SimpleMovingAverage(id, sma.getPeriod());
 
         return simpleMovingAverageRepository.save(newSma);
