@@ -1,6 +1,7 @@
 ### Etc ###
 *.xlsx
 *.pdf
+old_pcp/
 
 HELP.md
 .gradle
