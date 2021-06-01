@@ -3,7 +3,7 @@ package com.gabrielnardes.pcpapi.forecasting.entity;
 import java.util.Arrays;
 
 public class Data {
-    private final double[] data;
+    private double[] data;
 
     public Data(double ... d) {
         data = d;

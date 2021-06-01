@@ -1,9 +1,6 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class SimpleMovingAverage {
@@ -11,16 +8,19 @@ public class SimpleMovingAverage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
-    private final Data d;
-    private final double[] sma;
-    private final int period;
 
-    public SimpleMovingAverage(Data _d, int period) {
-        this.d = _d;
+    private double[] data;
+
+    private double[] sma;
+
+    @Column(nullable = false)
+    private int period;
+
+    public SimpleMovingAverage(double[] data, int period) {
+        this.data = data;
         this.period = period;
 
-        sma = new double[(int) d.length() - period + 1];
+        sma = new double[(int) this.data.length - period + 1];
     }
 
     public void print() {
@@ -31,11 +31,11 @@ public class SimpleMovingAverage {
     }
 
     public void calc() {
-        for (int i = 0; i <= d.length() - period; i++) {
+        for (int i = 0; i <= data.length - period; i++) {
             double sum = 0;
 
             for (int j = i; j < i + period; j++) {
-                sum += d.get(j);
+                sum += data[j];
             }
 
             sma[i] = sum / period;
@@ -48,5 +48,33 @@ public class SimpleMovingAverage {
 
     public double[] getSma() {
         return sma;
+    }
+
+    public SimpleMovingAverage() {
+    }
+
+    public SimpleMovingAverage(int period) {
+        this.period = period;
+    }
+
+    public SimpleMovingAverage(long id, int period) {
+        this.id = id;
+        this.period = period;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
     }
 }
