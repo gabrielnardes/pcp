@@ -16,7 +16,9 @@ In the meantime, I will try to employ a DevOps pipeline in the project. Right no
 - **Monitor**: I have no idea.
 
 Since I'm learning while developing this project, some of this can be really wrong, or unnecessary.
-
+<details>
+  <summary>Project Goals</summary>
+  
 ## 1. MAKE IT WORK
 
 ### FORECASTING
@@ -86,9 +88,11 @@ Forecast errors
 ⬜ Generate PDF reports with tables, graphs, all the pretty stuff
 
 ⬜ Send reports to an email list
+</details>
 
-## PREVIEW
-
+<details>
+  <summary>Project preview</summary>
+  
 FORECASTING
 
 You can do linear regression with the Linear Least Squares method, like that:
@@ -166,3 +170,4 @@ And print the results.
 mrp.print();
 ```
 <img src="img/mrp.png" width="80%"/>
+</details>
