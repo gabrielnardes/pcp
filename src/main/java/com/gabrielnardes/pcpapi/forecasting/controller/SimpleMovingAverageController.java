@@ -45,4 +45,15 @@ public class SimpleMovingAverageController {
 
         return simpleMovingAverageRepository.save(newSma);
     }
+
+    @PatchMapping("/{id}")
+    public @ResponseBody SimpleMovingAverage updatePeriod(@PathVariable Long id, @RequestBody int period) {
+        Optional<SimpleMovingAverage> optionalSma = simpleMovingAverageRepository.findById(id);
+
+        SimpleMovingAverage updatedSma = optionalSma.get();
+        updatedSma.setPeriod(period);
+        updatedSma.calc();
+
+        return simpleMovingAverageRepository.save(updatedSma);
+    }
 }
