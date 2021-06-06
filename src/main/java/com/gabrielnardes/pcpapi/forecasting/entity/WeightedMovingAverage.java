@@ -1,53 +1,93 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
+import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@NoArgsConstructor
+@TypeDefs({
+        @TypeDef(
+                name = "double-array",
+                typeClass = DoubleArrayType.class
+        )
+})
 public class WeightedMovingAverage {
-    private final Data d;
-    private final double[] wma;
-    private final double[] w;
-    private final int period;
 
-    public WeightedMovingAverage(Data _d, int period, double ... w) {
-        this.d = _d;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Type( type = "double-array" )
+    @Column(nullable = false,
+            columnDefinition = "double precision[]"
+    )
+    private double[] data;
+
+    @Type( type = "double-array" )
+    @Column(nullable = false,
+            columnDefinition = "double precision[]"
+    )
+    private double[] wma;
+
+    @Column(nullable = false)
+    private int period;
+
+    @Type( type = "double-array" )
+    @Column(columnDefinition = "double precision[]")
+    private double[] weight;
+
+    public WeightedMovingAverage(Long id, int period, double[] data) {
+        this.id = id;
+        this.data = data;
         this.period = period;
-        this.w = w;
 
-        double wSum = 0;
-        for (double el : w) {
-            wSum += el;
+        double weightsSum = 0;
+        for (double w : weight) {
+            weightsSum += w;
         }
-        if (wSum != 1.0) {
+        if (weightsSum != 1.0) {
             System.out.println("Weight sum not equal to 1");
         }
 
-        wma = new double[(int) d.length() - period + 1];
+        wma = new double[data.length - period + 1];
     }
 
-    public void print() {
-        System.out.println("WMA with period " + period);
-        for (int i = 0; i < wma.length; i++) {
-            System.out.printf("P[%d]: %.2f\n", i + period, wma[i]);
+    public WeightedMovingAverage(double[] data, int period, double ... weight) {
+        this.data = data;
+        this.period = period;
+        this.weight = weight;
+
+        double weightsSum = 0;
+        for (double w : weight) {
+            weightsSum += w;
         }
+        if (weightsSum != 1.0) {
+            System.out.println("Weight sum not equal to 1");
+        }
+
+        wma = new double[data.length - period + 1];
     }
 
     public void calc() {
-        for (int i = 0; i <= d.length() - this.period; i++) {
+        wma = new double[data.length - period + 1];
+
+        for (int i = 0; i <= data.length - period; i++) {
             double sum = 0;
             int wId = 0;
 
-            for (int j = i; j < i + this.period; j++) {
-                sum += d.get(j) * w[wId];
+            for (int j = i; j < i + period; j++) {
+                sum += data[j] * weight[wId];
                 wId++;
             }
 
             this.wma[i] = sum;
         }
-    }
-
-    public double[] getWma() {
-        return wma;
-    }
-
-    public double get(int i) {
-        return wma[i];
     }
 }
