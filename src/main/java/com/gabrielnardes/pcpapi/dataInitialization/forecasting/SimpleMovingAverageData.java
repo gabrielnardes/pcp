@@ -1,4 +1,4 @@
-package com.gabrielnardes.pcpapi.dataInitialization;
+package com.gabrielnardes.pcpapi.dataInitialization.forecasting;
 
 import com.gabrielnardes.pcpapi.forecasting.entity.SimpleMovingAverage;
 import com.gabrielnardes.pcpapi.forecasting.repository.SimpleMovingAverageRepository;

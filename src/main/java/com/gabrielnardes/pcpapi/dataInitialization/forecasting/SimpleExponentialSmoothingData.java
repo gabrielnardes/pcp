@@ -1,4 +1,4 @@
-package com.gabrielnardes.pcpapi.dataInitialization;
+package com.gabrielnardes.pcpapi.dataInitialization.forecasting;
 
 import com.gabrielnardes.pcpapi.forecasting.entity.SimpleExponentialSmoothing;
 import com.gabrielnardes.pcpapi.forecasting.repository.SimpleExponentialSmoothingRepository;
