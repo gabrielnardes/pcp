@@ -30,14 +30,14 @@ public class SimpleMovingAverage {
     )
     private double[] data;
 
+    @Column(nullable = false)
+    private int period;
+
     @Type( type = "double-array" )
     @Column(
             columnDefinition = "double precision[]"
     )
     private double[] sma;
-
-    @Column(nullable = false)
-    private int period;
 
     public void calc() {
         sma = new double[this.data.length - period + 1];
