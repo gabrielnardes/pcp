@@ -16,79 +16,83 @@ In the meantime, I will try to employ a DevOps pipeline in the project. Right no
 - **Monitor**: I have no idea.
 
 Since I'm learning while developing this project, some of this can be really wrong, or unnecessary.
-
+<details>
+  <summary>Project Goals</summary>
+  
 ## 1. MAKE IT WORK
 
 ### FORECASTING
 
 Quantitative methods
 
-:white_check_mark: Simple moving average
+✅ Simple moving average
 
-:white_check_mark: Weighted moving averages
+✅ Weighted moving averages
 
-:white_check_mark: Simple exponential smoothing
+✅ Simple exponential smoothing
 
-:white_check_mark: Regression
+✅ Regression
 
 Forecast errors
 
-:white_check_mark: Mean Forecast Error
+✅ Mean Forecast Error
 
-:white_check_mark: Mean Absolute Deviation
+✅ Mean Absolute Deviation
 
-:white_check_mark: Tracking Signal
+✅ Tracking Signal
 
 ### MRP (Material Requirement Planning)
 
-:white_check_mark: Transverse the tree
+✅ Transverse the tree
 
-:white_check_mark: Calculate the order for all children of a item
+✅ Calculate the order for all children of a item
 
-:white_check_mark: Calculate the order for all children of a item, unifying repeated items in a single production order
+✅ Calculate the order for all children of a item, unifying repeated items in a single production order
 
-:white_check_mark: Add children after the creation of the item, set/update children and delete children
+✅ Add children after the creation of the item, set/update children and delete children
 
-:white_check_mark: Generate Bill of Materials (BOM)
+✅ Generate Bill of Materials (BOM)
 
 ### PERT/CPM
-:white_large_square: PERT/CPM
+⬜ PERT/CPM
 
 ## 2. MAKE IT RIGHT
-:white_check_mark: Add unit tests with JUnit
+⚠️ Add unit tests with JUnit - *In progress*
 
-:white_large_square: Build the project as a Spring API
+⚠️ Build the project as a Spring REST API - *In progress*
 
-:white_large_square: Add user login (OAuth maybe?)
+⬜ Add user login (OAuth maybe?)
 
-:white_large_square: Develop a database (SQL or NoSQL, don't know yet)
+⚠️ Integrate with PostgreSQL database - *In progress*
 
-:white_large_square: Develop a web user interface (maybe pure Javascript, maybe React, don't know yet)
+⬜ Develop a web user interface (maybe pure Javascript, maybe React, don't know yet)
 
-:white_large_square: Develop a desktop user interface (maybe Electron, maybe JavaFX, don't know yet)
+⬜ Develop a desktop user interface (maybe Electron, maybe JavaFX, don't know yet)
 
 ## 3. MAKE IT FAST (not much, actually)
-:white_large_square: Add integration tests
+⬜ Add integration tests
 
-:white_large_square: Add CI/CD (probably GitHub Actions)
+⬜ Add CI/CD (probably GitHub Actions)
 
-:white_large_square: Use docker
+⬜ Use docker
 
-:white_large_square: Use kubernetes
+⬜ Use kubernetes
 
-:white_large_square: Deploy somewhere (AWS? Heroku?)
+⬜ Deploy somewhere (AWS? Heroku?)
 
-:white_large_square: Add some monitoring tools
+⬜ Add some monitoring tools
 
-:white_large_square: Rewrite the entire project in Assembly
+⬜ Rewrite the entire project in Assembly
 
 ## 4. NOT ANYTIME SOON
-:white_large_square: Generate PDF reports with tables, graphs, all the pretty stuff
+⬜ Generate PDF reports with tables, graphs, all the pretty stuff
 
-:white_large_square: Send reports to an email list
+⬜ Send reports to an email list
+</details>
 
-## PREVIEW
-
+<details>
+  <summary>Project preview</summary>
+  
 FORECASTING
 
 You can do linear regression with the Linear Least Squares method, like that:
@@ -166,3 +170,4 @@ And print the results.
 mrp.print();
 ```
 <img src="img/mrp.png" width="80%"/>
+</details>
