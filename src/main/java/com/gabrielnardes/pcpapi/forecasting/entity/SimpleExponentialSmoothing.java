@@ -1,14 +1,46 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
+import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@NoArgsConstructor
+@TypeDefs({
+        @TypeDef(
+                name = "double-array",
+                typeClass = DoubleArrayType.class
+        )
+})
 public class SimpleExponentialSmoothing {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private final double[] d;
-    private final double[] ses;
-    private final int period;
-    private final double alpha;
 
-    public SimpleExponentialSmoothing(double[] d, int period, double alpha) {
+    @Type( type = "double-array" )
+    @Column(nullable = false,
+            columnDefinition = "double precision[]"
+    )
+    private double[] data;
+
+    @Column(nullable = false)
+    private int period;
+
+    @Column(nullable = false)
+    private double alpha;
+
+    @Type( type = "double-array" )
+    @Column(columnDefinition = "double precision[]")
+    private double[] ses;
+
+    public SimpleExponentialSmoothing(long id, double[] data, int period, double alpha) {
         if (alpha > 1.0 | alpha < 0.0) {
             System.out.println("Alpha must be between 0.0 and 1.0");
         }
@@ -17,58 +49,64 @@ public class SimpleExponentialSmoothing {
             System.out.println("Period must be equal or greater than 2");
         }
 
-        this.d = d;
+        this.id = id;
+        this.data = data;
         this.period = period;
         this.alpha = alpha;
 
         if (period == 1) {
-            ses = new double[(int) d.length];
+            ses = new double[data.length];
         } else {
-            ses = new double[(int) d.length - period];
+            ses = new double[data.length - period];
         }
     }
 
-    public void print() {
-        System.out.println("forecasting.SES with period " + period);
+    public SimpleExponentialSmoothing(double[] data, int period, double alpha) {
+        if (alpha > 1.0 | alpha < 0.0) {
+            System.out.println("Alpha must be between 0.0 and 1.0");
+        }
 
-        int adjust = period > 1 ? 2: 1;
+        if (period < 1) {
+            System.out.println("Period must be equal or greater than 2");
+        }
 
-        for (int i = 0; i < ses.length; i++) {
-            System.out.printf("F[%d]: %.3f\n", i + period + adjust, ses[i]);
+        this.data = data;
+        this.period = period;
+        this.alpha = alpha;
+
+        if (period == 1) {
+            ses = new double[data.length];
+        } else {
+            ses = new double[data.length - period];
         }
     }
 
     public void calc() {
         if (period == 1) {
-            ses[0] = d[0];
+            ses = new double[data.length];
+            ses[0] = data[0];
 
             for (int i = 1; i < ses.length; i++) {
-                ses[i] = ses[i-1] + alpha * (d[i] - ses[i-1]);
-//                System.out.printf("%d: %.1f = %.1f + %.1f * (%.1f - %.1f)\n", i, ses[i], ses[i-1], a, d.get(i), ses[i-1]);
+                ses[i] = ses[i-1] + alpha * (data[i] - ses[i-1]);
             }
         } else {
+            ses = new double[data.length - period];
             double[] d1 = new double[period];
 
             for (int i = 0; i < period; i++) {
-                d1[i] = d[i];
+                d1[i] = data[i];
             }
 
-//            Data d = new Data(d1);
-            double[] d = d1;
-            SimpleMovingAverage sma = new SimpleMovingAverage(d, period);
+            double[] data = d1;
+            SimpleMovingAverage sma = new SimpleMovingAverage(data, period);
 
             sma.calc();
 
-            ses[0] = sma.get(0) + alpha * (this.d[period] - sma.get(0));
+            ses[0] = sma.get(0) + alpha * (this.data[period] - sma.get(0));
 
             for (int i = 1; i < ses.length; i++) {
-                ses[i] = ses[i-1] + alpha * (this.d[i+period] - ses[i-1]);
-//                System.out.printf("%d: %.1f = %.1f + %.1f * (%.1f - %.1f)\n", i+period+2, ses[i], ses[i-1], a, d.get(i+period), ses[i-1]);
+                ses[i] = ses[i-1] + alpha * (this.data[i+period] - ses[i-1]);
             }
         }
-    }
-
-    public double[] getSes() {
-        return ses;
     }
 }
