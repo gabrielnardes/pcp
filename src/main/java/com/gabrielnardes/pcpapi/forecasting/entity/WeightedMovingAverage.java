@@ -43,10 +43,11 @@ public class WeightedMovingAverage {
     @Column(columnDefinition = "double precision[]")
     private double[] weight;
 
-    public WeightedMovingAverage(Long id, int period, double[] data) {
+    public WeightedMovingAverage(long id, double[] data, int period, double ... weight) {
         this.id = id;
         this.data = data;
         this.period = period;
+        this.weight = weight;
 
         double weightsSum = 0;
         for (double w : weight) {

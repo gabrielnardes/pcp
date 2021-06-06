@@ -38,22 +38,11 @@ public class WeightedMovingAverageController {
         weightedMovingAverageRepository.deleteById(id);
     }
 
-//    @PutMapping("/{id}")
-//    public @ResponseBody WeightedMovingAverage update(@PathVariable Long id, @RequestBody WeightedMovingAverage wma) {
-//        WeightedMovingAverage newWma = new WeightedMovingAverage(id, wma.getPeriod(), wma.getData());
-//        newWma.calc();
-//
-//        return WeightedMovingAverageRepository.save(newWma);
-//    }
+    @PutMapping("/{id}")
+    public @ResponseBody WeightedMovingAverage update(@PathVariable Long id, @RequestBody WeightedMovingAverage wma) {
+        WeightedMovingAverage newWma = new WeightedMovingAverage(id, wma.getData(), wma.getPeriod(), wma.getWeight());
+        newWma.calc();
 
-//    @PatchMapping("/{id}")
-//    public @ResponseBody WeightedMovingAverage updatePeriod(@PathVariable Long id, @RequestBody int period) {
-//        Optional<WeightedMovingAverage> optionalWma = weightedMovingAverageRepository.findById(id);
-//
-//        WeightedMovingAverage updatedwma = optionalWma.get();
-//        updatedwma.setPeriod(period);
-//        updatedwma.calc();
-//
-//        return WeightedMovingAverageRepository.save(updatedwma);
-//    }
+        return weightedMovingAverageRepository.save(newWma);
+    }
 }
