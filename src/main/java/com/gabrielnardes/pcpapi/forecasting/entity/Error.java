@@ -1,9 +1,9 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
 public class Error {
-    double[] x;
-    double[] y;
-    int n;
+    private double[] x;
+    private double[] y;
+    private int n;
 
     public Error(double[] x, double[] y) {
         if (x.length != y.length) {
