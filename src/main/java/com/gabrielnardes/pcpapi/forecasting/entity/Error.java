@@ -23,8 +23,6 @@ public class Error {
             errorSum += x[i] - y[i];
         }
 
-        System.out.printf("\nMean Forecast forecasting.Error: %.2f", errorSum / n);
-
         return errorSum / n;
     }
 
@@ -35,12 +33,9 @@ public class Error {
             errorSum += Math.abs(x[i] - y[i]);
         }
 
-        System.out.printf("\nMean Absolute Deviation: %.2f", errorSum / n);
-
         return errorSum / n;
     }
 
-    // Running Sum of the Forecast Errors
     public double runningSumOfForecastErrors() {
         double errorSum = 0;
 
@@ -48,17 +43,11 @@ public class Error {
             errorSum += x[i] - y[i];
         }
 
-        System.out.printf("\nRunning Sum of the Forecast Errors: %.2f", errorSum);
-
         return errorSum;
     }
 
     public double trackingSignal() {
-        double trackingSignal = runningSumOfForecastErrors() / meanAbsoluteDeviation();
-
-        System.out.printf("\nTracking Signal: %.2f", trackingSignal);
-
-        return trackingSignal;
+        return runningSumOfForecastErrors() / meanAbsoluteDeviation();
     }
 
     @Override
