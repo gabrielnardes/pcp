@@ -1,26 +1,26 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
 public class Error {
-    Data x;
-    Data y;
+    double[] x;
+    double[] y;
     int n;
 
-    public Error(Data x, Data y) {
-        if (x.length() != y.length()) {
+    public Error(double[] x, double[] y) {
+        if (x.length != y.length) {
             System.out.println("X and Y data set must be equal length");
         }
 
         this.x = x;
         this.y = y;
 
-        this.n = x.length();
+        this.n = x.length;
     }
 
     public double meanForecastError() {
         double errorSum = 0;
 
         for (int i = 0; i < n; i++) {
-            errorSum += x.get(i) - y.get(i);
+            errorSum += x[i] - y[i];
         }
 
         System.out.printf("\nMean Forecast forecasting.Error: %.2f", errorSum / n);
@@ -32,7 +32,7 @@ public class Error {
         double errorSum = 0;
 
         for (int i = 0; i < n; i++) {
-            errorSum += Math.abs(x.get(i) - y.get(i));
+            errorSum += Math.abs(x[i] - y[i]);
         }
 
         System.out.printf("\nMean Absolute Deviation: %.2f", errorSum / n);
@@ -45,7 +45,7 @@ public class Error {
         double errorSum = 0;
 
         for (int i = 0; i < n; i++) {
-            errorSum += x.get(i) - y.get(i);
+            errorSum += x[i] - y[i];
         }
 
         System.out.printf("\nRunning Sum of the Forecast Errors: %.2f", errorSum);
