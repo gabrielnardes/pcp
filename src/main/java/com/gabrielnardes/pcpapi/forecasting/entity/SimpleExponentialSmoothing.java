@@ -93,9 +93,7 @@ public class SimpleExponentialSmoothing {
             ses = new double[data.length - period];
             double[] d1 = new double[period];
 
-            for (int i = 0; i < period; i++) {
-                d1[i] = data[i];
-            }
+            System.arraycopy(data, 0, d1, 0, period);
 
             double[] data = d1;
             SimpleMovingAverage sma = new SimpleMovingAverage(data, period);
