@@ -8,6 +8,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
 @Data
@@ -68,5 +69,15 @@ public class SimpleMovingAverage {
         this.period = period;
         this.data = data;
         this.sma = new double[this.data.length - period + 1];
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleMovingAverage{" +
+                "id=" + id +
+                "\nperiod=" + period +
+                "\ndata=" + Arrays.toString(data) +
+                "\nsma=" + Arrays.toString(sma) +
+                '}';
     }
 }
