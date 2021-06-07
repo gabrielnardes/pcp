@@ -52,10 +52,13 @@ public class Error {
 
     @Override
     public String toString() {
-        return "forecasting.Error{" +
-                "x=" + x +
-                ", y=" + y +
-                ", n=" + n +
+        return "Error{" +
+                "\nn=" + n +
+                "\nmeanForecastError=" + meanForecastError +
+                "\nmeanAbsoluteDeviation=" + meanAbsoluteDeviation +
+                "\ntrackingSignal=" + trackingSignal +
+                "\nx=" + Arrays.toString(x) +
+                "\ny=" + Arrays.toString(y) +
                 '}';
     }
 }
