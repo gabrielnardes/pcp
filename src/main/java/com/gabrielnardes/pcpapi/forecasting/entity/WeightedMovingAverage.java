@@ -8,6 +8,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
 @Data
@@ -90,5 +91,16 @@ public class WeightedMovingAverage {
 
             this.wma[i] = sum;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "WeightedMovingAverage{" +
+                "id=" + id +
+                "\nperiod=" + period +
+                "\ndata=" + Arrays.toString(data) +
+                "\nwma=" + Arrays.toString(wma) +
+                "\nweight=" + Arrays.toString(weight) +
+                '}';
     }
 }
