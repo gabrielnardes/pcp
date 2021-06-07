@@ -109,4 +109,15 @@ public class SimpleExponentialSmoothing {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "SimpleExponentialSmoothing{" +
+                "id=" + id +
+                "\nperiod=" + period +
+                "\nalpha=" + alpha +
+                "\ndata=" + Arrays.toString(data) +
+                "\nses=" + Arrays.toString(ses) +
+                '}';
+    }
 }
