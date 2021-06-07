@@ -1,9 +1,14 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
+import java.util.Arrays;
+
 public class Error {
     private double[] x;
     private double[] y;
     private int n;
+    private double meanForecastError;
+    private double meanAbsoluteDeviation;
+    private double trackingSignal;
 
     public Error(double[] x, double[] y) {
         if (x.length != y.length) {
@@ -14,6 +19,10 @@ public class Error {
         this.y = y;
 
         this.n = x.length;
+
+        meanForecastError = meanForecastError();
+        meanAbsoluteDeviation = meanAbsoluteDeviation();
+        trackingSignal = trackingSignal();
     }
 
     public double meanForecastError() {
