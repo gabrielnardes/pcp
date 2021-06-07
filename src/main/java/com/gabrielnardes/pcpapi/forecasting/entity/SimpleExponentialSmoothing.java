@@ -8,6 +8,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
 @Data
@@ -95,8 +96,7 @@ public class SimpleExponentialSmoothing {
 
             System.arraycopy(data, 0, d1, 0, period);
 
-            double[] data = d1;
-            SimpleMovingAverage sma = new SimpleMovingAverage(data, period);
+            SimpleMovingAverage sma = new SimpleMovingAverage(d1, period);
 
             sma.calc();
 
