@@ -10,86 +10,85 @@ public class PcpApiApplication {
 		SpringApplication.run(PcpApiApplication.class, args);
 		System.out.println("Server on");
 
-//      Simple moving averages
+//      Simple moving average
 /*
-        Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        System.out.println(d);
-        SimpleMovingAverage sma = new SimpleMovingAverage(d, 2);
+        double[] data = {24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23};
+        System.out.println(data);
+        SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
         sma.calc();
-        sma.print();
+		System.out.println(sma);
 */
 
-//      Weighted moving averages
+//      Weighted moving average
 /*
-		Data d = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        WeightedMovingAverage wma = new WeightedMovingAverage(d, 3,0.5, 0.3, 0.2);
+		double[] data = {24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23};
+        WeightedMovingAverage wma = new WeightedMovingAverage(data, 3,0.5, 0.3, 0.2);
         wma.calc();
-        wma.print();
+        System.out.println(wma);
 */
 
 //      Simple exponential smoothing
 /*
-		Data d = new Data(1, 432, 6, 12313, 534, 54);
-		SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(d, 1, 0.012);
+		double[] data = {1, 432, 6, 12313, 534, 54};
+		SimpleExponentialSmoothing ses = new SimpleExponentialSmoothing(data, 1, 0.012);
         ses.calc();
-        ses.print();
+        System.out.println(ses);
 
-        Data d1 = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        SimpleExponentialSmoothing ses1 = new SimpleExponentialSmoothing(d1, 2, 0.8);
+        double[] data1 = {24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23};
+        SimpleExponentialSmoothing ses1 = new SimpleExponentialSmoothing(data1, 2, 0.8);
         ses1.calc();
-        ses1.print();
+        System.out.println(ses1);
 
-        Data d2 = new Data(24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23);
-        SimpleExponentialSmoothing ses2 = new SimpleExponentialSmoothing(d2, 4, 0.4);
+        double[] data2 = {24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23};
+        SimpleExponentialSmoothing ses2 = new SimpleExponentialSmoothing(data2, 4, 0.4);
         ses2.calc();
-        ses2.print();
+        System.out.println(ses2);
 */
 
 //      Regression - Linear Least Squares
 /*
-        Data x = new Data(1, 2, 3, 4, 5, 6, 7);
-        Data y = new Data(1.5, 3.8, 6.7, 9,11.2, 13.6, 16);
+        double[] x = {1, 2, 3, 4, 5, 6, 7};
+        double[] y = {1.5, 3.8, 6.7, 9,11.2, 13.6, 16};
         LinearLeastSquares lls = new LinearLeastSquares(x, y);
-        lls.print();
+        System.out.println(lls);
 
-        Data x1 = new Data(1, 2, 3, 4, 5, 6, 7, 8);
-        Data y1 = new Data(256, 312, 426, 278, 298, 387, 517, 349);
+        double[] x1 = {1, 2, 3, 4, 5, 6, 7, 8};
+        double[] y1 = {256, 312, 426, 278, 298, 387, 517, 349};
         LinearLeastSquares lls1 = new LinearLeastSquares(x1, y1);
-        lls1.print();
+        System.out.println(lls1);
 
-        Data x2 = new Data(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        Data y2 = lls1.calc(x2);
-        Data y3 = lls1.seasoned(y1, y2, 4);
-        y2.print();
-        y3.print();
+        double[] x2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        double[] y2 = lls1.calc(x2);
+        double[] y3 = lls1.seasoned(y1, y2, 4);
+        System.out.println(Arrays.toString(y2));
+        System.out.println(Arrays.toString(y3));
 
-        Data x4 = new Data(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+        double[] x4 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
                               11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-                              21, 22, 23, 24, 25, 26, 27, 28, 29, 30);
-        Data y4 = new Data(49, 22, 44, 87, 98, 30, 87, 89, 27, 80,
+                              21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+        double[] y4 = {49, 22, 44, 87, 98, 30, 87, 89, 27, 80,
                 21, 72, 93, 74, 30, 77, 94, 82, 3, 63, 29, 4, 13, 9,
-                30, 64, 42, 24, 1, 89);
+                30, 64, 42, 24, 1, 89};
         LinearLeastSquares lls4 = new LinearLeastSquares(x4, y4);
-        Data r4 = lls4.calc(x4);
-        Data s4 = lls4.seasoned(y4, r4, 12);
-        r4.print();
-        s4.print();
+        double[] r4 = lls4.calc(x4);
+        double[] s4 = lls4.seasoned(y4, r4, 12);
+        System.out.println(Arrays.toString(r4));
+        System.out.println(Arrays.toString(s4));
 */
 
 //      Errors
 /*
-        Data d1 = new Data(12, 15, 13, 16, 14, 12);
-        Data f1 = new Data(14, 13, 12, 13, 15, 14);
+        double[] data1 = {12, 15, 13, 16, 14, 12};
+        double[] forecast1 = {14, 13, 12, 13, 15, 14};
 
-        Error e1 = new Error(d1, f1);
-        e1.meanForecastError();
-        e1.meanAbsoluteDeviation();
+        Error e1 = new Error(data1, forecast1);
+        System.out.println(e1);
 
-        Data d2 = new Data(8, 11, 12, 14);
-        Data f2 = new Data(10, 10, 10, 10);
+        double[] data2 = {8, 11, 12, 14};
+        double[] forecast2 = {10, 10, 10, 10};
 
-        Error e2 = new Error(d2, f2);
-        e2.trackingSignal();
+        Error e2 = new Error(data2, forecast2);
+        System.out.println(e2);
 */
 
 //      MPS - Master Production Schedule
