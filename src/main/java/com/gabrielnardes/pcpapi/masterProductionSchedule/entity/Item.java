@@ -1,4 +1,4 @@
-package com.gabrielnardes.pcpapi.masterProductionSchedule;
+package com.gabrielnardes.pcpapi.masterProductionSchedule.entity;
 
 import java.util.ArrayList;
 import java.util.Arrays;

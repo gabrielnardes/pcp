@@ -1,4 +1,4 @@
-package com.gabrielnardes.pcpapi.masterProductionSchedule;
+package com.gabrielnardes.pcpapi.masterProductionSchedule.entity;
 
 public class Child {
     private Item item;
