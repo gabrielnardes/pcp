@@ -1,15 +1,48 @@
 package com.gabrielnardes.pcpapi.masterProductionSchedule.entity;
 
+import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+@Entity
+@Data
+@NoArgsConstructor
+@TypeDefs({
+        @TypeDef(
+                name = "double-array",
+                typeClass = DoubleArrayType.class
+        )
+})
 public class Item {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private double initialStock;
+
+    @Column(nullable = false)
     private double leadTime;
+
+    @Column(nullable = false)
     private double safetyStock;
+
+    @Column(nullable = false)
     private double lotSize;
-    private ArrayList<Child> children;
+
+    @OneToMany(mappedBy = "item", cascade=CascadeType.ALL, orphanRemoval = true)
+    private List<Child> children = new ArrayList<>();
 
     public Item(String name, double initialStock, double leadTime, double safetyStock, double lotSize, Child... children) {
         this.name = name;
@@ -18,8 +51,11 @@ public class Item {
         this.safetyStock = safetyStock;
         this.lotSize = lotSize;
 
-        this.children = new ArrayList<>();
+        for (Child c : children) {
+            c.setOwner(this);
+        }
 
+        this.children = new ArrayList<>();
         this.children.addAll(Arrays.asList(children));
     }
 
@@ -64,20 +100,6 @@ public class Item {
         }
     }
 
-    public void print() {
-        System.out.print("com.gabrielnardes.pcp.entity.masterProductionSchedule.Item{" +
-                "name='" + name + '\'' +
-                ", initialStock=" + initialStock +
-                ", leadTime=" + leadTime +
-                ", safetyStock=" + safetyStock +
-                ", lotSize=" + lotSize +
-                '}');
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public void printChildren() {
         for (Child child : children) {
             child.print();
@@ -93,37 +115,5 @@ public class Item {
 
     public BillOfMaterial bom(int quantity) {
         return new BillOfMaterial(this, quantity);
-    }
-
-    public ArrayList<Child> getChildren() {
-        return children;
-    }
-
-    @Override
-    public String toString() {
-        return "com.gabrielnardes.pcp.entity.masterProductionSchedule.Item{" +
-                "name='" + name + '\'' +
-                ", initialStock=" + initialStock +
-                ", leadTime=" + leadTime +
-                ", safetyStock=" + safetyStock +
-                ", lotSize=" + lotSize +
-                ", children=" + children +
-                '}';
-    }
-
-    public double getLeadTime() {
-        return leadTime;
-    }
-
-    public double getSafetyStock() {
-        return safetyStock;
-    }
-
-    public double getLotSize() {
-        return lotSize;
-    }
-
-    public double getInitialStock() {
-        return initialStock;
     }
 }
