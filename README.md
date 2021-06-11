@@ -9,7 +9,7 @@ In the meantime, I will try to employ a DevOps pipeline in the project. Right no
 - **Plan**: my head.
 - **Code**: Java, IntelliJ, Git and GitHub.
 - **Build**: Gradle.
-- **Test**: JUnit, Selenium(maybe?).
+- **Test**: JUnit, Mockito, Selenium(maybe?).
 - **Release**: GitHub Actions.
 - **Deploy**: Docker, (first Heroku, and later AWS).
 - **Operate**: Kubernetes.
