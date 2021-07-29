@@ -30,6 +30,6 @@ public class ItemData implements ApplicationRunner {
         Item a = new Item("A", 50,  1, 0, 200, new Child(c, 4), new Child(d, 3));
         itemRepository.save(a);
 
-        System.out.println("Finishing Item datasource creation");
+        System.out.println("Finishing Item datasource creation!");
     }
 }
