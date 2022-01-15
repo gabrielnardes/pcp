@@ -111,7 +111,7 @@ LinearLeastSquares lls = new LinearLeastSquares(x, y);
 Print the results.
 ```
 lls.print();
-y = 18,80x + 268,29
+y = 18.80x + 268.29
 ```
 
 Given a demand and its forecast, you can calculate some forecast errors.
