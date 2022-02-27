@@ -1,5 +1,6 @@
 package com.gabrielnardes.pcpapi;
 
+import com.gabrielnardes.pcpapi.forecasting.entity.SimpleMovingAverage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,13 +12,11 @@ public class PcpApiApplication {
 		System.out.println("Server on");
 
 //      Simple moving average
-/*
-        double[] data = {24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23};
-        System.out.println(data);
-        SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
-        sma.calc();
-		System.out.println(sma);
-*/
+//        double[] data = {24, 26, 22, 25, 19, 31, 26, 18, 29, 24, 30, 23};
+//        System.out.println(data);
+//        SimpleMovingAverage sma = new SimpleMovingAverage(data, 2);
+//        sma.calc();
+//		System.out.println(sma);
 
 //      Weighted moving average
 /*

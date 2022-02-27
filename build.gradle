@@ -1,3 +1,11 @@
+buildscript {
+	repositories { mavenCentral() }
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:1.3.8.RELEASE"
+		classpath 'org.springframework:springloaded:1.2.0.RELEASE'
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.5.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -21,10 +29,26 @@ dependencies {
 	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
 	implementation 'com.vladmihalcea:hibernate-types-52:2.11.1'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+	implementation 'junit:junit:4.13.1'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.h2database:h2:2.1.210'
+	implementation 'org.apache.commons:commons-collections4:4.4'
+	implementation 'org.liquibase:liquibase-core:4.8.0'
+	implementation 'org.springframework.boot:spring-boot-devtools:2.6.4'
 }
 
 test {
 	useJUnitPlatform()
+}
+
+
+
+apply plugin: 'idea'
+
+idea {
+	module {
+		inheritOutputDirs = false
+		outputDir = file("$buildDir/classes/main/")
+	}
 }
