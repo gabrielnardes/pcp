@@ -1,8 +1,6 @@
 package com.gabrielnardes.pcpapi.masterProductionSchedule.entity;
 
 import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -12,8 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @TypeDefs({
         @TypeDef(
                 name = "double-array",
@@ -115,5 +113,61 @@ public class Item {
 
     public BillOfMaterial bom(int quantity) {
         return new BillOfMaterial(this, quantity);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getInitialStock() {
+        return initialStock;
+    }
+
+    public void setInitialStock(double initialStock) {
+        this.initialStock = initialStock;
+    }
+
+    public double getLeadTime() {
+        return leadTime;
+    }
+
+    public void setLeadTime(double leadTime) {
+        this.leadTime = leadTime;
+    }
+
+    public double getSafetyStock() {
+        return safetyStock;
+    }
+
+    public void setSafetyStock(double safetyStock) {
+        this.safetyStock = safetyStock;
+    }
+
+    public double getLotSize() {
+        return lotSize;
+    }
+
+    public void setLotSize(double lotSize) {
+        this.lotSize = lotSize;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Child> children) {
+        this.children = children;
     }
 }

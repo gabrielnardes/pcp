@@ -4,11 +4,11 @@ import com.gabrielnardes.pcpapi.forecasting.entity.SimpleMovingAverage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class PcpApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PcpApiApplication.class, args);
+//		SpringApplication.run(PcpApiApplication.class, args);
 		System.out.println("Server on");
 
 //      Simple moving average

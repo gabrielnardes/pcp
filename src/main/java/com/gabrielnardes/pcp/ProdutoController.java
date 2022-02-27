@@ -20,13 +20,29 @@ public class ProdutoController {
         return produtoService.findAll();
     }
 
-    @PostMapping
-    public void save(Produto produto) {
-        produtoService.save(produto);
-    }
+//    @GetMapping("/{id}")
+//    public @ResponseBody
+//    Produto findById(@PathVariable Long id) {
+//        return produtoService.findById(id);
+//    }
+//
+//    @PostMapping
+//    public void save(Produto produto) {
+//        produtoService.save(produto);
+//    }
+//
+//    @PutMapping
+//    public void update(Produto produto) {
+//        produtoService.update(produto);
+//    }
+//
+//    @DeleteMapping("/{id}")
+//    public void delete(@PathVariable Long id) {
+//        produtoService.delete(id);
+//    }
 
     @GetMapping("/test")
     public @ResponseBody ResponseEntity test() {
-        return new ResponseEntity<>("Hello World", HttpStatus.OK);
+        return new ResponseEntity<>("Hello!", HttpStatus.OK);
     }
 }

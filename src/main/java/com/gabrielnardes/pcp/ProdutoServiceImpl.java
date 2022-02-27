@@ -19,4 +19,19 @@ public class ProdutoServiceImpl implements ProdutoService {
         repository.save(produto);
     }
 
+    @Override
+    public Produto findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    @Override
+    public void update(Produto produto) {
+
+    }
+
 }

@@ -1,8 +1,6 @@
 package com.gabrielnardes.pcpapi.forecasting.entity;
 
 import com.vladmihalcea.hibernate.type.array.DoubleArrayType;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
@@ -11,8 +9,8 @@ import javax.persistence.*;
 import java.util.Arrays;
 
 @Entity
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @TypeDefs({
         @TypeDef(
                 name = "double-array",
@@ -102,5 +100,45 @@ public class WeightedMovingAverage {
                 "\nwma=" + Arrays.toString(wma) +
                 "\nweight=" + Arrays.toString(weight) +
                 '}';
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public double[] getData() {
+        return data;
+    }
+
+    public void setData(double[] data) {
+        this.data = data;
+    }
+
+    public double[] getWma() {
+        return wma;
+    }
+
+    public void setWma(double[] wma) {
+        this.wma = wma;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+
+    public double[] getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double[] weight) {
+        this.weight = weight;
     }
 }

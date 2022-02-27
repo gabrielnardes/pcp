@@ -1,13 +1,10 @@
 package com.gabrielnardes.pcpapi.masterProductionSchedule.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 public class Child {
 
     @Id
@@ -33,5 +30,37 @@ public class Child {
     public void print() {
 //        item.print();
         System.out.println("Quantity " + quantity);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Item getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Item owner) {
+        this.owner = owner;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
