@@ -13,4 +13,9 @@ public class ProductServiceImpl implements ProductService {
     public Iterable<Product> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public void save(Product product) {
+        repository.save(product);
+    }
 }

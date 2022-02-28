@@ -40,3 +40,5 @@ databaseChangeLog:
               - column:
                   name: price
                   value: '3000.50'
+        -  sql:
+            sql:  ALTER SEQUENCE product_id_seq RESTART 3

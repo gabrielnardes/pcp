@@ -14,11 +14,19 @@ public class ProductController {
     private ProductService service;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     ResponseEntity findAll() {
         Iterable<Product> products = service.findAll();
 
         return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public @ResponseBody void create(@RequestBody Product product) {
+        System.out.println(product);
+        service.save(product);
     }
 
     @GetMapping("/test")
