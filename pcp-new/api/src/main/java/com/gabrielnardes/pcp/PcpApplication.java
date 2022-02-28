@@ -10,5 +10,4 @@ public class PcpApplication {
 		SpringApplication.run(PcpApplication.class, args);
 		System.out.println("Server on");
 	}
-
 }
