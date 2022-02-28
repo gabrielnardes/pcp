@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { findProduto } from '../services/ProdutoService';
+import { findAllProducts } from '../services/ProdutoService';
 
 export function Request() {
     const [response, setResponse] = useState("");
 
     const getProduto = async () => {
-        var data = await findProduto()
+        var data = await findAllProducts()
         setResponse(data);
     }
 
