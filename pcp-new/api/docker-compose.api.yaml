@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+    image: pcp-api
+    ports:
+      - 8080:8080
+    container_name: pcp-api
+    networks:
+      - frontend
+      - backend
+networks:
+  backend:
+    external: false
+    name: backend
+    driver: bridge
+  frontend:
+    external: false
+    name: frontend
+    driver: bridge
