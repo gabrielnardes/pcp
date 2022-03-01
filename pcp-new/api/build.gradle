@@ -36,3 +36,12 @@ tasks.named('test') {
 bootRun {
 	jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006"]
 }
+
+jar {
+    enabled = false
+}
+
+bootJar {
+    enabled = true
+	mainClass = 'com.gabrielnardes.pcp.PcpApplication'
+}
