@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build --progress tty -t pcp-api .
+docker build --tag pcp-api .
