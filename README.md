@@ -138,7 +138,7 @@ MRP
 
 Given a tree of materials, and the requirements for the root item, you can generate the order production for all chidren.
 
-<img src="img/tree.png" width="40%"/>
+<img src="__docs__/img/tree.png" width="40%"/>
 
 Here is the constructor of an item, and it's children:
 ```
@@ -169,5 +169,5 @@ And print the results.
 ```
 mrp.print();
 ```
-<img src="img/mrp.png" width="80%"/>
+<img src="__docs__/img/mrp.png" width="80%"/>
 </details>
