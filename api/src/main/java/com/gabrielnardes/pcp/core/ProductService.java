@@ -1,7 +1,24 @@
 package com.gabrielnardes.pcp.core;
 
-public interface ProductService {
-    Iterable<Product> findAll();
+import jakarta.enterprise.context.ApplicationScoped;
 
-    void save(Product product);
+import java.util.List;
+
+@ApplicationScoped
+public class ProductService {
+
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public List<Product> findAll() {
+        return this.productRepository.findAll();
+    }
+
+    public void save(Product product) {
+        this.productRepository.save(product);
+    }
+
 }
