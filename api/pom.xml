@@ -68,7 +68,11 @@
             <artifactId>quarkus-rest-jsonb</artifactId>
             <version>3.16.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.myfaces.core.extensions.quarkus</groupId>
+            <artifactId>myfaces-quarkus</artifactId>
+            <version>4.1.0-RC3</version>
+        </dependency>
     </dependencies>
 
     <build>
