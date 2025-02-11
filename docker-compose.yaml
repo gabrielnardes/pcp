@@ -1,28 +1,24 @@
 services:
   api:
-   image: pcp-api
+   image: pcp
+   container_name: pcp
    ports:
-     - 8080:8080
-   container_name: pcp-api
-   networks:
-     - backend
+     - ${APP_PORT}:${APP_PORT}
+     - ${DEBUG_PORT}:${DEBUG_PORT}
    depends_on:
      - postgres
+   environment:
+     - QUARKUS_LAUNCH_DEVMODE=true
+     - JAVA_DEBUG=true
+     - JAVA_DEBUG_PORT=*:${DEBUG_PORT}
   postgres:
     container_name: postgres
     image: postgres:17.0-alpine3.20
     ports:
-      - 5432:5432
+      - ${DATABASE_PORT}:${DATABASE_PORT}
     volumes:
       - ./postgres:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=pcp
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=pcpapi
-    networks:
-      - backend
-networks:
-  backend:
-    external: false
-    name: backend
-    driver: bridge
+      - POSTGRES_PASSWORD=postgres

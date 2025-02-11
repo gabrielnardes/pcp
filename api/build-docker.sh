@@ -1,2 +1,3 @@
 #!/bin/sh
-docker build --tag pcp-api -f src/main/docker/Dockerfile.jvm .
+
+docker build --tag pcp -f src/main/docker/Dockerfile.dev .

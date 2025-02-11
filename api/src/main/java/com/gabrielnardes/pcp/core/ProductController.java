@@ -27,7 +27,6 @@ public class ProductController {
 
     @POST
     public void create(Product product) {
-        System.out.println(product);
         this.productService.save(product);
     }
 
