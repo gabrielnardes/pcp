@@ -23,15 +23,15 @@ public class ProductLoadDatabase {
         return args -> {
             Product productA = new Product();
             productA.setName("Product A");
-            productA.setPrice(new BigDecimal(23));
+            productA.setPrice(new BigDecimal(1));
 
             Product productB = new Product();
             productB.setName("Product B");
-            productB.setPrice(new BigDecimal(123));
+            productB.setPrice(new BigDecimal(5));
 
             Product productC = new Product();
             productC.setName("Product C");
-            productC.setPrice(new BigDecimal(999));
+            productC.setPrice(new BigDecimal(10));
 
             System.out.println(productRepository.save(productA));
             System.out.println(productRepository.save(productB));
@@ -39,10 +39,10 @@ public class ProductLoadDatabase {
 
             Order order = new Order();
             order.setStatus(Status.CREATED);
-            order.setQuantity(2L);
+            order.setQuantity(3L);
             order.setPrice(productA.getPrice());
             order.setCreationDate(new Date());
-            order.setClient("myClient");
+            order.setClient("Client A");
             order.setProduct(1L);
 
             System.out.println(orderRepository.save(order));
