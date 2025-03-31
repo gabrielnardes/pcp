@@ -1,18 +1,25 @@
 package com.gabrielnardes.erp.product;
 
+import com.gabrielnardes.erp.order.Order;
+import com.gabrielnardes.erp.order.OrderRepository;
+import com.gabrielnardes.erp.order.Status;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Configuration
 public class ProductLoadDatabase {
 
     @Bean
     @Transactional
-    CommandLineRunner initDatabase(ProductRepository repository) {
+    CommandLineRunner initDatabase(
+            ProductRepository productRepository,
+            OrderRepository orderRepository
+    ) {
         return args -> {
             Product productA = new Product();
             productA.setName("Product A");
@@ -26,9 +33,19 @@ public class ProductLoadDatabase {
             productC.setName("Product C");
             productC.setPrice(new BigDecimal(999));
 
-            System.out.println(repository.save(productA));
-            System.out.println(repository.save(productB));
-            System.out.println(repository.save(productC));
+            System.out.println(productRepository.save(productA));
+            System.out.println(productRepository.save(productB));
+            System.out.println(productRepository.save(productC));
+
+            Order order = new Order();
+            order.setStatus(Status.CREATED);
+            order.setQuantity(2L);
+            order.setPrice(productA.getPrice());
+            order.setCreationDate(new Date());
+            order.setClient("myClient");
+            order.setProduct(1L);
+
+            System.out.println(orderRepository.save(order));
         };
     }
 }
