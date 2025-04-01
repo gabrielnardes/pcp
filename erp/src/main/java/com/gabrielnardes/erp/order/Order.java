@@ -18,8 +18,8 @@ public class Order implements Serializable {
     private Long quantity;
     private BigDecimal price;
     private Date creationDate;
-    private String client;
-    private Long product;
+    private Long customerId;
+    private Long productId;
 
     public Long getId() {
         return id;
@@ -61,31 +61,31 @@ public class Order implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public String getClient() {
-        return client;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setClient(String client) {
-        this.client = client;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
-    public Long getProduct() {
-        return product;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct(Long product) {
-        this.product = product;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Order order)) return false;
-        return Objects.equals(id, order.id) && status == order.status && Objects.equals(quantity, order.quantity) && Objects.equals(price, order.price) && Objects.equals(creationDate, order.creationDate) && Objects.equals(client, order.client) && Objects.equals(product, order.product);
+        return Objects.equals(id, order.id) && status == order.status && Objects.equals(quantity, order.quantity) && Objects.equals(price, order.price) && Objects.equals(creationDate, order.creationDate) && Objects.equals(customerId, order.customerId) && Objects.equals(productId, order.productId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, quantity, price, creationDate, client, product);
+        return Objects.hash(id, status, quantity, price, creationDate, customerId, productId);
     }
 
     @Override
@@ -96,8 +96,8 @@ public class Order implements Serializable {
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", creationDate=" + creationDate +
-                ", client='" + client + '\'' +
-                ", product=" + product +
+                ", customerId=" + customerId +
+                ", productId=" + productId +
                 '}';
     }
 

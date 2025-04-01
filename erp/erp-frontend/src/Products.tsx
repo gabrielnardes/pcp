@@ -12,7 +12,7 @@ interface Product {
   price: number;
 }
 
-const ProductCRUD: React.FC = () => {
+const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [form, setForm] = useState<{ id?: number; name: string; price: number }>({ name: "", price: 0 });
 
@@ -62,11 +62,6 @@ const ProductCRUD: React.FC = () => {
 
   return (
     <div className="p-4 max-w-lg mx-auto">
-      <nav className="mb-4 p-2 bg-gray-200 flex gap-4">
-        <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/orders">Orders</Link>
-      </nav>
       <h1 className="text-xl font-bold mb-4">Product Management</h1>
       <div className="flex gap-2 mb-4">
         <Input placeholder="Product Name" name="name" value={form.name} onChange={handleChange} />
@@ -100,4 +95,4 @@ const ProductCRUD: React.FC = () => {
   );
 };
 
-export default ProductCRUD;
+export default Products;

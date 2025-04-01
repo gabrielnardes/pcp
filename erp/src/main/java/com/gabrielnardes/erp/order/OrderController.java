@@ -1,5 +1,7 @@
 package com.gabrielnardes.erp.order;
 
+import com.gabrielnardes.erp.customer.Customer;
+import com.gabrielnardes.erp.customer.CustomerRepository;
 import com.gabrielnardes.erp.product.Product;
 import com.gabrielnardes.erp.product.ProductRepository;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +18,16 @@ public class OrderController {
 
     private OrderRepository orderRepository;
     private ProductRepository productRepository;
+    private CustomerRepository customerRepository;
 
-    public OrderController(OrderRepository orderRepository, ProductRepository productRepository) {
+    public OrderController(
+            OrderRepository orderRepository,
+            ProductRepository productRepository,
+            CustomerRepository customerRepository
+    ) {
         this.orderRepository = orderRepository;
         this.productRepository = productRepository;
+        this.customerRepository = customerRepository;
     }
 
     @GetMapping("/order")
@@ -28,8 +36,10 @@ public class OrderController {
         List<OrderDTOResponse> response = new ArrayList<>(all.size());
 
         for (Order order : all) {
-            Product product = productRepository.findById(order.getProduct())
-                    .orElseThrow(() -> new RuntimeException("RuntimeExceptionRuntimeException"));
+            Product product = productRepository.findById(order.getProductId())
+                    .orElseThrow(() -> new RuntimeException("Product not found"));
+            Customer customer = customerRepository.findById(order.getCustomerId())
+                    .orElseThrow(() -> new RuntimeException("Customer not found"));
 
             OrderDTOResponse orderDTOResponse = new OrderDTOResponse();
             orderDTOResponse.setId(order.getId());
@@ -38,7 +48,7 @@ public class OrderController {
             orderDTOResponse.setPrice(order.getPrice());
             orderDTOResponse.setTotal(order.getPrice().multiply(new BigDecimal(order.getQuantity())));
             orderDTOResponse.setCreationDate(order.getCreationDate());
-            orderDTOResponse.setClient(order.getClient());
+            orderDTOResponse.setCustomer(customer.getName());
             orderDTOResponse.setProduct(product.getName());
 
             response.add(orderDTOResponse);
@@ -50,15 +60,17 @@ public class OrderController {
     @PostMapping("/order")
     public OrderDTOResponse create(@RequestBody OrderDTO newOrder) {
         Product product = productRepository.findById(newOrder.getProductId())
-                .orElseThrow(() -> new RuntimeException("RuntimeExceptionRuntimeException"));
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        Customer customer = customerRepository.findById(newOrder.getCustomerId())
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
 
         Order order = new Order();
         order.setStatus(Status.CREATED);
         order.setQuantity(newOrder.getQuantity());
         order.setPrice(product.getPrice());
         order.setCreationDate(new Date());
-        order.setClient(newOrder.getClient());
-        order.setProduct(newOrder.getProductId());
+        order.setCustomerId(newOrder.getCustomerId());
+        order.setProductId(newOrder.getProductId());
 
         order = orderRepository.save(order);
 
@@ -69,7 +81,7 @@ public class OrderController {
         orderDTOResponse.setPrice(order.getPrice());
         orderDTOResponse.setTotal(order.getPrice().multiply(new BigDecimal(order.getQuantity())));
         orderDTOResponse.setCreationDate(order.getCreationDate());
-        orderDTOResponse.setClient(order.getClient());
+        orderDTOResponse.setCustomer(customer.getName());
         orderDTOResponse.setProduct(product.getName());
 
         return orderDTOResponse;

@@ -13,7 +13,7 @@ public class OrderDTOResponse implements Serializable {
     private BigDecimal price;
     private BigDecimal total;
     private Date creationDate;
-    private String client;
+    private String customer;
     private String product;
 
     public Long getId() {
@@ -64,12 +64,12 @@ public class OrderDTOResponse implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public String getClient() {
-        return client;
+    public String getCustomer() {
+        return customer;
     }
 
-    public void setClient(String client) {
-        this.client = client;
+    public void setCustomer(String customer) {
+        this.customer = customer;
     }
 
     public String getProduct() {
@@ -83,12 +83,12 @@ public class OrderDTOResponse implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof OrderDTOResponse that)) return false;
-        return Objects.equals(id, that.id) && status == that.status && Objects.equals(quantity, that.quantity) && Objects.equals(price, that.price) && Objects.equals(total, that.total) && Objects.equals(creationDate, that.creationDate) && Objects.equals(client, that.client) && Objects.equals(product, that.product);
+        return Objects.equals(id, that.id) && status == that.status && Objects.equals(quantity, that.quantity) && Objects.equals(price, that.price) && Objects.equals(total, that.total) && Objects.equals(creationDate, that.creationDate) && Objects.equals(customer, that.customer) && Objects.equals(product, that.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, quantity, price, total, creationDate, client, product);
+        return Objects.hash(id, status, quantity, price, total, creationDate, customer, product);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class OrderDTOResponse implements Serializable {
                 ", price=" + price +
                 ", total=" + total +
                 ", creationDate=" + creationDate +
-                ", client='" + client + '\'' +
+                ", customer='" + customer + '\'' +
                 ", product='" + product + '\'' +
                 '}';
     }

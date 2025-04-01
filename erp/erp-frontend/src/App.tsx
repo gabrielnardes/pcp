@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-import ProductCRUD from "./ProductCRUD";
+import Products from "./Products";
 import Home from "./Home";
 import Orders from "./Orders";
+import Customers from "./Customers";
 import { Button } from "@/components/ui/button";
 
 const NavigationButtons: React.FC = () => {
@@ -13,6 +14,7 @@ const NavigationButtons: React.FC = () => {
       <Button onClick={() => navigate("/")}>Home</Button>
       <Button onClick={() => navigate("/products")}>Products</Button>
       <Button onClick={() => navigate("/orders")}>Orders</Button>
+      <Button onClick={() => navigate("/customers")}>Customers</Button>
     </div>
   );
 };
@@ -24,8 +26,9 @@ const AppRoutes: React.FC = () => {
         <NavigationButtons />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductCRUD />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/customers" element={<Customers />} />
         </Routes>
       </div>
     </Router>

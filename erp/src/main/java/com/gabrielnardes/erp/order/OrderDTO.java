@@ -6,7 +6,7 @@ import java.util.Objects;
 public class OrderDTO implements Serializable {
 
     private Long quantity;
-    private String client;
+    private Long customerId;
     private Long productId;
 
     public Long getQuantity() {
@@ -17,12 +17,12 @@ public class OrderDTO implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getClient() {
-        return client;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setClient(String client) {
-        this.client = client;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public Long getProductId() {
@@ -36,20 +36,20 @@ public class OrderDTO implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof OrderDTO orderDTO)) return false;
-        return Objects.equals(quantity, orderDTO.quantity) && Objects.equals(client, orderDTO.client) && Objects.equals(productId, orderDTO.productId);
+        return Objects.equals(quantity, orderDTO.quantity) && Objects.equals(customerId, orderDTO.customerId) && Objects.equals(productId, orderDTO.productId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quantity, client, productId);
+        return Objects.hash(quantity, customerId, productId);
     }
 
     @Override
     public String toString() {
         return "OrderDTO{" +
                 "quantity=" + quantity +
-                ", client='" + client + '\'' +
-                ", product=" + productId +
+                ", customerId='" + customerId + '\'' +
+                ", productId=" + productId +
                 '}';
     }
 }
