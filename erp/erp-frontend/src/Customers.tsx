@@ -67,7 +67,7 @@ const Customers: React.FC = () => {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto">
+    <div className="p-4 mx-auto">
       <h1 className="text-xl font-bold mb-4">Customer Management</h1>
       <div className="flex gap-2 mb-4">
         <Input type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} />

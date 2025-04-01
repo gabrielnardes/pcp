@@ -61,7 +61,7 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto">
+    <div className="p-4 mx-auto">
       <h1 className="text-xl font-bold mb-4">Product Management</h1>
       <div className="flex gap-2 mb-4">
         <Input placeholder="Product Name" name="name" value={form.name} onChange={handleChange} />

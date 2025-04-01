@@ -22,7 +22,7 @@ const NavigationButtons: React.FC = () => {
 const AppRoutes: React.FC = () => {
   return (
     <Router>
-      <div className="p-4 max-w-lg mx-auto">
+      <div className="p-4 max-w-200 mx-auto">
         <NavigationButtons />
         <Routes>
           <Route path="/" element={<Home />} />
