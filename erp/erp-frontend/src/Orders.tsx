@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 const API_HOST = "http://localhost:8080/order";
 const API_PRODUCTS = "http://localhost:8080/product";
 const API_CUSTOMERS = "http://localhost:8080/customer";
+const API_LOCATION = "http://localhost:8080/location";
 
 interface Order {
   id: number;
@@ -16,16 +17,21 @@ interface Order {
   creationDate: Date;
   customer: string;
   product: string;
+  origin: string;
+  destination: string;
 }
 
 const Orders: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [products, setProducts] = useState<{ id: number; name: string }[]>([]);
   const [customers, setCustomers] = useState<{ id: number; name: string }[]>([]);
-  const [form, setForm] = useState<{ quantity: number; customerId: number; productId: number }>({
+  const [locations, setLocations] = useState<{ id: number; name: string }[]>([]);
+  const [form, setForm] = useState<{ quantity: number; customerId: number; productId: number; originId: number; destinationId: number }>({
     quantity: 1,
     customerId: 0,
     productId: 0,
+    originId: 0,
+    destinationId: 0,
   });
 
   useEffect(() => {
@@ -43,6 +49,11 @@ const Orders: React.FC = () => {
       .then((res) => res.json())
       .then((data) => setCustomers(data))
       .catch((err) => console.error("Error fetching customers:", err));
+
+    fetch(API_LOCATION)
+      .then((res) => res.json())
+      .then((data) => setLocations(data))
+      .catch((err) => console.error("Error fetching locations:", err));
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -85,6 +96,18 @@ const Orders: React.FC = () => {
             <option key={product.id} value={product.id}>{product.name}</option>
           ))}
         </select>
+        <select name="originId" value={form.originId} onChange={handleChange} className="border p-2">
+          <option value={0}>Select Origin</option>
+          {locations.map((location) => (
+            <option key={location.id} value={location.id}>{location.name}</option>
+          ))}
+        </select>
+        <select name="destinationId" value={form.destinationId} onChange={handleChange} className="border p-2">
+          <option value={0}>Select Destination</option>
+          {locations.map((location) => (
+            <option key={location.id} value={location.id}>{location.name}</option>
+          ))}
+        </select>
         <Button onClick={handleCreate}>Create Order</Button>
       </div>
       <Table>
@@ -98,6 +121,8 @@ const Orders: React.FC = () => {
             <TableHead>Created At</TableHead>
             <TableHead>Customer</TableHead>
             <TableHead>Product</TableHead>
+            <TableHead>Origin</TableHead>
+            <TableHead>Destination</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -112,6 +137,8 @@ const Orders: React.FC = () => {
               <TableCell>{new Date(order.creationDate).toLocaleString()}</TableCell>
               <TableCell>{order.customer}</TableCell>
               <TableCell>{order.product}</TableCell>
+              <TableCell>{order.origin}</TableCell>
+              <TableCell>{order.destination}</TableCell>
               <TableCell>
                 <Button size="sm" variant="destructive" onClick={() => handleCancel(order.id)}>
                   Cancel

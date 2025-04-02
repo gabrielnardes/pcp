@@ -15,6 +15,8 @@ public class OrderDTOResponse implements Serializable {
     private Date creationDate;
     private String customer;
     private String product;
+    private String origin;
+    private String destination;
 
     public Long getId() {
         return id;
@@ -80,15 +82,31 @@ public class OrderDTOResponse implements Serializable {
         this.product = product;
     }
 
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof OrderDTOResponse that)) return false;
-        return Objects.equals(id, that.id) && status == that.status && Objects.equals(quantity, that.quantity) && Objects.equals(price, that.price) && Objects.equals(total, that.total) && Objects.equals(creationDate, that.creationDate) && Objects.equals(customer, that.customer) && Objects.equals(product, that.product);
+        return Objects.equals(id, that.id) && status == that.status && Objects.equals(quantity, that.quantity) && Objects.equals(price, that.price) && Objects.equals(total, that.total) && Objects.equals(creationDate, that.creationDate) && Objects.equals(customer, that.customer) && Objects.equals(product, that.product) && Objects.equals(origin, that.origin) && Objects.equals(destination, that.destination);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, quantity, price, total, creationDate, customer, product);
+        return Objects.hash(id, status, quantity, price, total, creationDate, customer, product, origin, destination);
     }
 
     @Override
@@ -102,6 +120,9 @@ public class OrderDTOResponse implements Serializable {
                 ", creationDate=" + creationDate +
                 ", customer='" + customer + '\'' +
                 ", product='" + product + '\'' +
+                ", origin='" + origin + '\'' +
+                ", destination='" + destination + '\'' +
                 '}';
     }
+
 }

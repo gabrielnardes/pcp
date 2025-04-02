@@ -20,6 +20,8 @@ public class Order implements Serializable {
     private Date creationDate;
     private Long customerId;
     private Long productId;
+    private Long originId;
+    private Long destinationId;
 
     public Long getId() {
         return id;
@@ -77,15 +79,31 @@ public class Order implements Serializable {
         this.productId = productId;
     }
 
+    public Long getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(Long originId) {
+        this.originId = originId;
+    }
+
+    public Long getDestinationId() {
+        return destinationId;
+    }
+
+    public void setDestinationId(Long destinationId) {
+        this.destinationId = destinationId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Order order)) return false;
-        return Objects.equals(id, order.id) && status == order.status && Objects.equals(quantity, order.quantity) && Objects.equals(price, order.price) && Objects.equals(creationDate, order.creationDate) && Objects.equals(customerId, order.customerId) && Objects.equals(productId, order.productId);
+        return Objects.equals(id, order.id) && status == order.status && Objects.equals(quantity, order.quantity) && Objects.equals(price, order.price) && Objects.equals(creationDate, order.creationDate) && Objects.equals(customerId, order.customerId) && Objects.equals(productId, order.productId) && Objects.equals(originId, order.originId) && Objects.equals(destinationId, order.destinationId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, quantity, price, creationDate, customerId, productId);
+        return Objects.hash(id, status, quantity, price, creationDate, customerId, productId, originId, destinationId);
     }
 
     @Override
@@ -98,6 +116,8 @@ public class Order implements Serializable {
                 ", creationDate=" + creationDate +
                 ", customerId=" + customerId +
                 ", productId=" + productId +
+                ", originId=" + originId +
+                ", destinationId=" + destinationId +
                 '}';
     }
 

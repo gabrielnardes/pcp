@@ -2,6 +2,8 @@ package com.gabrielnardes.erp.order;
 
 import com.gabrielnardes.erp.customer.Customer;
 import com.gabrielnardes.erp.customer.CustomerRepository;
+import com.gabrielnardes.erp.location.Location;
+import com.gabrielnardes.erp.location.LocationRepository;
 import com.gabrielnardes.erp.product.Product;
 import com.gabrielnardes.erp.product.ProductRepository;
 import org.springframework.web.bind.annotation.*;
@@ -19,15 +21,18 @@ public class OrderController {
     private OrderRepository orderRepository;
     private ProductRepository productRepository;
     private CustomerRepository customerRepository;
+    private LocationRepository locationRepository;
 
     public OrderController(
             OrderRepository orderRepository,
             ProductRepository productRepository,
-            CustomerRepository customerRepository
+            CustomerRepository customerRepository,
+            LocationRepository locationRepository
     ) {
         this.orderRepository = orderRepository;
         this.productRepository = productRepository;
         this.customerRepository = customerRepository;
+        this.locationRepository = locationRepository;
     }
 
     @GetMapping("/order")
@@ -40,6 +45,10 @@ public class OrderController {
                     .orElseThrow(() -> new RuntimeException("Product not found"));
             Customer customer = customerRepository.findById(order.getCustomerId())
                     .orElseThrow(() -> new RuntimeException("Customer not found"));
+            Location origin = locationRepository.findById(order.getOriginId())
+                    .orElseThrow(() -> new RuntimeException("Origin not found"));
+            Location destination = locationRepository.findById(order.getDestinationId())
+                    .orElseThrow(() -> new RuntimeException("Destination not found"));
 
             OrderDTOResponse orderDTOResponse = new OrderDTOResponse();
             orderDTOResponse.setId(order.getId());
@@ -50,6 +59,8 @@ public class OrderController {
             orderDTOResponse.setCreationDate(order.getCreationDate());
             orderDTOResponse.setCustomer(customer.getName());
             orderDTOResponse.setProduct(product.getName());
+            orderDTOResponse.setOrigin(origin.getName());
+            orderDTOResponse.setDestination(destination.getName());
 
             response.add(orderDTOResponse);
         }
@@ -63,6 +74,10 @@ public class OrderController {
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         Customer customer = customerRepository.findById(newOrder.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
+        Location origin = locationRepository.findById(newOrder.getOriginId())
+                .orElseThrow(() -> new RuntimeException("Origin not found"));
+        Location destination = locationRepository.findById(newOrder.getDestinationId())
+                .orElseThrow(() -> new RuntimeException("Destination not found"));
 
         Order order = new Order();
         order.setStatus(Status.CREATED);
@@ -71,6 +86,8 @@ public class OrderController {
         order.setCreationDate(new Date());
         order.setCustomerId(newOrder.getCustomerId());
         order.setProductId(newOrder.getProductId());
+        order.setOriginId(newOrder.getOriginId());
+        order.setDestinationId(newOrder.getDestinationId());
 
         order = orderRepository.save(order);
 
@@ -83,6 +100,8 @@ public class OrderController {
         orderDTOResponse.setCreationDate(order.getCreationDate());
         orderDTOResponse.setCustomer(customer.getName());
         orderDTOResponse.setProduct(product.getName());
+        orderDTOResponse.setOrigin(origin.getName());
+        orderDTOResponse.setDestination(destination.getName());
 
         return orderDTOResponse;
     }
