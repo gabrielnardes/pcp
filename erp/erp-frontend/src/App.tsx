@@ -4,6 +4,7 @@ import Products from "./Products";
 import Home from "./Home";
 import Orders from "./Orders";
 import Customers from "./Customers";
+import Locations from "./Locations";
 import { Button } from "@/components/ui/button";
 
 const NavigationButtons: React.FC = () => {
@@ -13,8 +14,9 @@ const NavigationButtons: React.FC = () => {
     <div className="flex gap-4 mb-4 p-2 bg-gray-200">
       <Button onClick={() => navigate("/")}>Home</Button>
       <Button onClick={() => navigate("/products")}>Products</Button>
-      <Button onClick={() => navigate("/orders")}>Orders</Button>
       <Button onClick={() => navigate("/customers")}>Customers</Button>
+      <Button onClick={() => navigate("/locations")}>Locations</Button>
+      <Button onClick={() => navigate("/orders")}>Orders</Button>
     </div>
   );
 };
@@ -27,8 +29,9 @@ const AppRoutes: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </Router>
