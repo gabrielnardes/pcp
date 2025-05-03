@@ -10,3 +10,11 @@ services:
       - POSTGRES_DB=erp
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+  jaeger:
+    container_name: jaeger
+    image: jaegertracing/all-in-one:1.68.0
+    ports:
+      - 4318:4318
+      - 16686:16686
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
