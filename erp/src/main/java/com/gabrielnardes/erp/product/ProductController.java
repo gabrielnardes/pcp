@@ -1,5 +1,7 @@
 package com.gabrielnardes.erp.product;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -7,6 +9,8 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     private final ProductRepository repository;
 
@@ -16,11 +20,13 @@ public class ProductController {
 
     @GetMapping("/product")
     List<Product> all() {
+        LOGGER.info("all()");
         return repository.findAll();
     }
 
     @PostMapping("/product")
     Product newProduct(@RequestBody Product newProduct) {
+        LOGGER.info("newProduct()");
         return repository.save(newProduct);
     }
 

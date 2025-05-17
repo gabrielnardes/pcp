@@ -18,3 +18,30 @@ services:
       - 16686:16686
     environment:
       - COLLECTOR_OTLP_ENABLED=true
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-enterprise
+    user: '0'
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana:/var/lib/grafana
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:8.18.1
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+  logstash:
+    container_name: logstash
+    image: logstash:8.18.1
+    ports:
+      - 5000:5000
+    environment:
+      - XPACK_MONITORING_ENABLED=false
+    volumes:
+      - ./logs:/logs
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
